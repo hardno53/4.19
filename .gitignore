@@ -1,0 +1,9 @@
+
+# local-only, root level
+/*.gz
+/apply_con.sh
+/*.log
+/*.img
+/kernel-*/
+/*console.c
+/alive
