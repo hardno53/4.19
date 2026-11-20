@@ -1,3 +1,8 @@
 PULIHKAN kernel-4.19.325 di tree baru:
 tar xzf k419_backup.tgz -C kernel-4.19.325/
 Daftar file ada di k419_files.txt (termasuk out/.config).
+
+BASE tree kernel-4.19.325:
+a67e7cdde7cc7984ae24c3c81a70dc1aa34424b1 Linux 4.19.325
+origin	https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git (fetch)
+origin	https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git (push)
