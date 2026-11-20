@@ -1,0 +1,3 @@
+PULIHKAN kernel-4.19.325 di tree baru:
+tar xzf k419_backup.tgz -C kernel-4.19.325/
+Daftar file ada di k419_files.txt (termasuk out/.config).
