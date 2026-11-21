@@ -1,4 +1,5 @@
 arch/arm64/configs/a02_64_bootstrap_defconfig
+arch/arm64/kernel/process.c
 drivers/usb/musb/Kconfig
 drivers/usb/musb/Makefile
 drivers/usb/musb/musb_mt6739.c
