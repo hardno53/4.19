@@ -1,0 +1,38 @@
+5
+      2 ../drivers/misc/mediatek/gpu/gpu_rgx/m1.13ED5776728/services/server/env/linux/pvr_ion_stats.c
+      1 ../drivers/misc/mediatek/gpu/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6739/mtk_mfgsys.c
+      1 ../drivers/misc/mediatek/gpu/ged/src/ged_main.c
+      1 ../drivers/misc/mediatek/base/power/mt6739/mtk_picachu.c
+39-  CC      drivers/misc/mediatek/gpu/gpu_rgx/m1.13ED5776728/generated/rogue/sync_bridge/client_sync_direct_bridge.o
+40:../drivers/misc/mediatek/base/power/mt6739/mtk_picachu.c:42:10: fatal error: 'mtk_eem.h' file not found
+41-   42 | #include "mtk_eem.h"
+42-      |          ^~~~~~~~~~~
+--
+52-  CC      drivers/misc/mediatek/gpu/gpu_rgx/m1.13ED5776728/generated/rogue/sync_bridge/server_sync_bridge.o
+53:../drivers/misc/mediatek/gpu/ged/src/ged_main.c:372:48: error: array has incomplete element type 'const struct of_device_id'
+54-  372 | static const struct of_device_id g_ged_of_match[] = {
+55-      |                                                ^
+--
+135-      |                ^
+136:../drivers/misc/mediatek/gpu/gpu_rgx/m1.13ED5776728/services/system/rogue/rgx_mtk/mt6739/mtk_mfgsys.c:55:10: fatal error: 'trace/events/mtk_events.h' file not found
+137-   55 | #include <trace/events/mtk_events.h>
+138-      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+--
+384-  CC      drivers/misc/mediatek/gpu/gpu_rgx/m1.13ED5776728/services/shared/common/hash.o
+385:../drivers/misc/mediatek/gpu/gpu_rgx/m1.13ED5776728/services/server/env/linux/pvr_ion_stats.c:470:54: error: incomplete definition of type 'struct ion_buffer'
+386-  470 |                 psBuf->ui32HeapKey = pfnHashKey((uintptr_t)psIonBuf->heap->name);
+387-      |                                                            ~~~~~~~~^
+--
+390-      |        ^
+391:../drivers/misc/mediatek/gpu/gpu_rgx/m1.13ED5776728/services/server/env/linux/pvr_ion_stats.c:474:54: error: incomplete definition of type 'struct ion_buffer'
+392-  474 |                 psBuf->ui32HeapKey = pfnHashKey((uintptr_t)psIonBuf->heap->id);
+393-      |                                                            ~~~~~~~~^
+scripts/kconfig/conf  --syncconfig Kconfig
+  CC      drivers/misc/mediatek/base/power/mt6739/mtk_gpufreq.o
+MTK_GPU_VERSION 1 = rgx
+In file included from ../drivers/misc/mediatek/base/power/mt6739/mtk_gpufreq.c:74:
+*MTK_GPU_VERSION = rgx auckland 1.8ED
+  CC      drivers/misc/mediatek/gpu/hal/mtk_gpu_utility.o
+In file included from ../drivers/misc/mediatek/base/power/mt6739/mtk_gpufreq.c:74:
+../drivers/misc/mediatek/base/power/mt6739/mtk_gpufreq.h:125:16: warning: redefinition of typedef 'gpufreq_power_limit_notify' is a C11 feature [-Wtypedef-redefinition]
+../drivers/misc/mediatek/base/power/mt6739/mtk_gpufreq.h:131:16: warning: redefinition of typedef 'gpufreq_input_boost_notify' is a C11 feature [-Wtypedef-redefinition]

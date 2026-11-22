@@ -1,0 +1,62 @@
+16-In file included from ../drivers/misc/mediatek/cmdq/v3/cmdq_core.h:9:
+17:../drivers/misc/mediatek/cmdq/v3/cmdq_helper_ext.h:11:10: fatal error: 'linux/soc/mediatek/mtk-cmdq.h' file not found
+18-   11 | #include <linux/soc/mediatek/mtk-cmdq.h>
+19-      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--
+28-In file included from ../drivers/misc/mediatek/cmdq/v3/cmdq_record.c:8:
+29:../drivers/misc/mediatek/cmdq/v3/cmdq_record.h:10:10: fatal error: 'linux/soc/mediatek/mtk-cmdq.h' file not found
+30-   10 | #include <linux/soc/mediatek/mtk-cmdq.h>
+31-      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+32:../drivers/misc/mediatek/m4u/mt6739/m4u_hw.c:1928:2: error: implicit declaration of function 'init_timer' [-Werror,-Wimplicit-function-declaration]
+33- 1928 |         init_timer(&m4u_isr_pause_timer);
+34-      |         ^
+--
+38-      |             ^
+39:../drivers/misc/mediatek/m4u/mt6739/m4u_hw.c:1929:31: error: incompatible function pointer types assigning to 'void (*)(struct timer_list *)' from 'void (unsigned long)' [-Wincompatible-function-po
+40- 1929 |         m4u_isr_pause_timer.function = m4u_isr_restart;
+41-      |                                      ^ ~~~~~~~~~~~~~~~
+--
+47-In file included from ../drivers/misc/mediatek/cmdq/v3/cmdq_virtual.c:6:
+48:../drivers/misc/mediatek/cmdq/v3/cmdq_helper_ext.h:11:10: fatal error: 'linux/soc/mediatek/mtk-cmdq.h' file not found
+49-   11 | #include <linux/soc/mediatek/mtk-cmdq.h>
+50-      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--
+60-In file included from ../drivers/misc/mediatek/cmdq/v3/cmdq_device.h:11:
+61:../drivers/misc/mediatek/cmdq/v3/cmdq_def.h:10:10: fatal error: 'linux/soc/mediatek/mtk-cmdq.h' file not found
+62-   10 | #include <linux/soc/mediatek/mtk-cmdq.h>
+63-      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--
+69-In file included from ../drivers/misc/mediatek/cmdq/v3/cmdq_driver.h:10:
+70:../drivers/misc/mediatek/cmdq/v3/cmdq_def.h:10:10: fatal error: 'linux/soc/mediatek/mtk-cmdq.h' file not found
+71-   10 | #include <linux/soc/mediatek/mtk-cmdq.h>
+72-      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--
+83-In file included from ../drivers/misc/mediatek/cmdq/v3/cmdq_mdp_common.h:9:
+84:../drivers/misc/mediatek/cmdq/v3/cmdq_def.h:10:10: fatal error: 'linux/soc/mediatek/mtk-cmdq.h' file not found
+85:   10 | #include <l../drivers/misc/mediatek/cmdq/v3/cmdq_event_common.c:in6:10:u xfatal error: /'linux/soc/mediatek/mtk-cmdq.h' file not founds
+86-oc    /6m | e#diinactleukd/em t<kl-icnmudxq/.sho>c
+87-/      m| e         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~d
+--
+90-In file included from ../drivers/misc/mediatek/smi/smi_drv.c:78:
+91:../drivers/misc/mediatek/cmdq/v3/cmdq_helper_ext.h:11:10: fatal error: 'linux/soc/mediatek/mtk-cmdq.h' file not found
+92-   11 | #include <linux/soc/mediatek/mtk-cmdq.h>
+93-      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--
+100-In file included from ../drivers/misc/mediatek/cmdq/v3/cmdq_subsys_common.c:7:
+101:../drivers/misc/mediatek/cmdq/v3/cmdq_helper_ext.h:11:10: fatal error: 'linux/soc/mediatek/mtk-cmdq.h' file not found
+102-   11 | #include <linux/soc/mediatek/mtk-cmdq.h>
+103-      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--
+113-In file included from ../drivers/misc/mediatek/cmdq/v3/cmdq_mmp.h:9:
+114:../drivers/misc/mediatek/cmdq/v3/cmdq_helper_ext.h:11:10: fatal error: 'linux/soc/mediatek/mtk-cmdq.h' file not found
+115-   11 | #include <linux/soc/mediatek/mtk-cmdq.h>
+116-      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+117-In file included from ../drivers/misc/mediatek/cmdq/v3/cmdq_helper_ext.c:25:
+118:../drivers/misc/mediatek/cmdq/v3/cmdq_helper_ext.h:11:10: fatal error: 'linux/soc/mediatek/mtk-cmdq.h' file not found
+119-   11 | #include <linux/soc/mediatek/mtk-cmdq.h>
+120-      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--
+126-In file included from ../drivers/misc/mediatek/cmdq/v3/cmdq_record_private.h:9:
+127:../drivers/misc/mediatek/cmdq/v3/cmdq_record.h:10:10: fatal error: 'linux/soc/mediatek/mtk-cmdq.h' file not found
+128-   10 | #include <linux/soc/mediatek/mtk-cmdq.h>
+129-      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -1,0 +1,8 @@
+2
+12-  CC      drivers/staging/android/ion/ion_page_pool.o
+13:../drivers/staging/android/ion/ion.c:1860:3: error: field designator 'map_atomic' does not refer to any field in type 'struct dma_buf_ops'
+14- 1860 |         .map_atomic = ion_dma_buf_kmap,
+15-      |         ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+16:../drivers/staging/android/ion/ion.c:1861:3: error: field designator 'unmap_atomic' does not refer to any field in type 'struct dma_buf_ops'
+17- 1861 |         .unmap_atomic = ion_dma_buf_kunmap,
+18-      |         ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -1,0 +1,183 @@
+==OURS==
+ls: cannot access 'drivers/misc/mediatek/base/power/spm_v4': No such file or directory
+drivers/misc/mediatek/base/power:
+include
+==OUR_MK==
+cat: drivers/misc/mediatek/base/power/Makefile: No such file or directory
+==REF_SPMV4_LS==
+total 472
+-rw-rw-rw- 1 codespace codespace   4992 Nov 21 23:21 Makefile
+-rw-rw-rw- 1 codespace codespace   7080 Nov 21 23:21 mtk_clk_id_internal.h
+-rw-rw-rw- 1 codespace codespace  50501 Nov 21 23:21 mtk_idle.c
+-rw-rw-rw- 1 codespace codespace   7781 Nov 21 23:21 mtk_idle_mt6739.c
+-rw-rw-rw- 1 codespace codespace  21687 Nov 21 23:21 mtk_idle_profile.c
+-rw-rw-rw- 1 codespace codespace   1786 Nov 21 23:21 mtk_idle_sysfs.c
+-rw-rw-rw- 1 codespace codespace    934 Nov 21 23:21 mtk_idle_sysfs.h
+-rw-rw-rw- 1 codespace codespace   5494 Nov 21 23:21 mtk_lp_kernfs.c
+-rw-rw-rw- 1 codespace codespace    738 Nov 21 23:21 mtk_lp_kernfs.h
+-rw-rw-rw- 1 codespace codespace   2243 Nov 21 23:21 mtk_lp_sysfs.c
+-rw-rw-rw- 1 codespace codespace   3423 Nov 21 23:21 mtk_lp_sysfs.h
+-rw-rw-rw- 1 codespace codespace   5891 Nov 21 23:21 mtk_lp_sysfs_procfs.c
+-rw-rw-rw- 1 codespace codespace  14708 Nov 21 23:21 mtk_sleep.c
+-rw-rw-rw- 1 codespace codespace  40769 Nov 21 23:21 mtk_spm.c
+-rw-rw-rw- 1 codespace codespace  18278 Nov 21 23:21 mtk_spm_dpidle.c
+-rw-rw-rw- 1 codespace codespace   2703 Nov 21 23:21 mtk_spm_dpidle_mt6739.c
+-rw-rw-rw- 1 codespace codespace 123461 Nov 21 23:21 mtk_spm_fs.c
+-rw-rw-rw- 1 codespace codespace   1008 Nov 21 23:21 mtk_spm_init.c
+-rw-rw-rw- 1 codespace codespace  12654 Nov 21 23:21 mtk_spm_internal.c
+-rw-rw-rw- 1 codespace codespace   6270 Nov 21 23:21 mtk_spm_pmic_wrap.c
+-rw-rw-rw- 1 codespace codespace   5831 Nov 21 23:21 mtk_spm_resource_req.c
+-rw-rw-rw- 1 codespace codespace  12729 Nov 21 23:21 mtk_spm_sleep.c
+-rw-rw-rw- 1 codespace codespace   1662 Nov 21 23:21 mtk_spm_sleep_internal.h
+-rw-rw-rw- 1 codespace codespace   9302 Nov 21 23:21 mtk_spm_sleep_mt6739.c
+-rw-rw-rw- 1 codespace codespace  15710 Nov 21 23:21 mtk_spm_sodi.c
+-rw-rw-rw- 1 codespace codespace  10567 Nov 21 23:21 mtk_spm_sodi3p0.c
+-rw-rw-rw- 1 codespace codespace   1043 Nov 21 23:21 mtk_spm_sodi_cmdq.c
+-rw-rw-rw- 1 codespace codespace   2831 Nov 21 23:21 mtk_spm_sodi_mt6739.c
+-rw-rw-rw- 1 codespace codespace  26638 Nov 21 23:21 mtk_spm_vcorefs.c
+==REF_SPMV4_MK==
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/base/power/$(MTK_PLATFORM)/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/base/power/include/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/base/power/include/spm_v4/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/base/power/eem_v1/inc/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/include/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/include/mt-plat/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/include/mt-plat/$(MTK_PLATFORM)/include/mach/
+
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/irq/$(MTK_PLATFORM)/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/dramc/$(MTK_PLATFORM)/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/thermal/fakeHeader/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/pmic_wrap/$(MTK_PLATFORM)/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/scp/$(MTK_PLATFORM)/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/pmic/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/pmic/include/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/pmic/include/mach/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/pmic/include/mt6356/
+
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/video/$(MTK_PLATFORM)/videox/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/video/$(MTK_PLATFORM)/dispsys/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/video/$(MTK_PLATFORM)/dispsys/$(MTK_PLATFORM)/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/video/$(MTK_PLATFORM)/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/video/$(MTK_PLATFORM)/$(MTK_PLATFORM)/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/video/include/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/cmdq/v3/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/cmdq/v3/$(MTK_PLATFORM)/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/lcm/inc/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/base/power/hps_v3/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/base/power/mcdi/include
+ccflags-y += -I$(srctree)/drivers/watchdog/mediatek/include/
+ccflags-y += -I$(srctree)/drivers/scsi/ufs/
+
+ifeq ($(CONFIG_MACH_MT6771), y)
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/emi/submodule/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/emi/$(MTK_PLATFORM)/
+endif
+
+ifeq ($(CONFIG_MACH_MT6771), y)
+ccflags-y  += -I$(srctree)/drivers/misc/mediatek/thermal/$(MTK_PLATFORM)/inc/
+endif
+
+ifeq ($(CONFIG_MTK_SND_SOC_NEW_ARCH), y)
+ccflags-y += -I$(srctree)/sound/soc/mediatek/$(MTK_PLATFORM)/
+ccflags-y += -I$(srctree)/sound/soc/mediatek/common_int/
+endif
+
+ifeq ($(CONFIG_MTK_TINYSYS_SSPM_SUPPORT), y)
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/sspm/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/sspm/$(MTK_PLATFORM)/
+endif
+
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/smi/
+ccflags-y += -I$(srctree)/drivers/devfreq/
+
+ifeq ($(CONFIG_MACH_MT6771), y)
+obj-y += mtk_idle.o
+obj-y += mtk_sleep.o
+obj-y += mtk_spm_init.o
+obj-y += mtk_spm.o
+obj-y += mtk_spm_dpidle.o
+obj-y += mtk_idle_profile.o
+obj-y += mtk_spm_fs.o
+obj-y += mtk_spm_internal.o
+obj-y += mtk_spm_resource_req.o
+obj-y += mtk_spm_sleep.o
+obj-y += mtk_spm_sodi.o
+obj-y += mtk_spm_sodi3p0.o
+obj-y += mtk_spm_vcorefs_mt6771.o
+obj-y += mtk_lp_sysfs.o
+obj-y += mtk_lp_kernfs.o
+obj-y += mtk_idle_sysfs.o
+obj-y += mtk_lp_sysfs_procfs.o
+
+ifeq ($(CONFIG_MTK_TINYSYS_SSPM_SUPPORT), y)
+obj-y += mtk_spm_vcorefs_ipi_mt6771.o
+endif
+else
+obj-y += mtk_idle.o
+obj-y += mtk_sleep.o
+obj-y += mtk_spm_init.o
+obj-y += mtk_spm.o
+obj-y += mtk_spm_dpidle.o
+obj-y += mtk_idle_profile.o
+obj-y += mtk_spm_fs.o
+obj-y += mtk_spm_internal.o
+obj-y += mtk_spm_resource_req.o
+obj-y += mtk_spm_sleep.o
+obj-y += mtk_spm_sodi.o
+obj-y += mtk_spm_sodi3p0.o
+obj-y += mtk_spm_vcorefs.o
+obj-y += mtk_lp_sysfs.o
+obj-y += mtk_lp_kernfs.o
+obj-y += mtk_idle_sysfs.o
+obj-y += mtk_lp_sysfs_procfs.o
+
+endif
+
+ifeq ($(CONFIG_MACH_MT6763), y)
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/base/power/include/cpuidle_v2/
+obj-y += mtk_idle_mt6763.o
+obj-y += mtk_spm_dpidle_mt6763.o
+ifneq ($(CONFIG_MTK_TINYSYS_SSPM_SUPPORT), y)
+obj-y += mtk_spm_pmic_wrap.o
+endif
+obj-y += mtk_spm_sleep_mt6763.o
+obj-y += mtk_spm_sodi_mt6763.o
+endif
+
+ifeq ($(CONFIG_MACH_MT6739), y)
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/base/power/include/clkbuf_v1/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/base/power/eem_v2/$(MTK_PLATFORM)/inc/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/base/power/include/cpuidle_v3/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/base/power/cpufreq_v2/src/mach/$(MTK_PLATFORM)/
+obj-y += mtk_idle_mt6739.o
+obj-y += mtk_spm_dpidle_mt6739.o
+obj-y += mtk_spm_sleep_mt6739.o
+obj-y += mtk_spm_sodi_mt6739.o
+endif
+
+ifeq ($(CONFIG_MACH_MT6771), y)
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/base/power/eem_v2/$(MTK_PLATFORM)/inc/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/base/power/include/cpuidle_v3/
+ccflags-y += -I$(srctree)/drivers/misc/mediatek/base/power/cpufreq_v1/src/mach/$(MTK_PLATFORM)/
+obj-y += mtk_idle_mt6771.o
+obj-y += mtk_spm_dpidle_mt6771.o
+obj-y += mtk_spm_sleep_mt6771.o
+obj-y += mtk_spm_sodi_mt6771.o
+endif
+==REF_PWR_MK==
+24:obj-$(CONFIG_MACH_MT6768) += spm/
+26:obj-$(CONFIG_MACH_MT6785) += spm/
+28:obj-$(CONFIG_MACH_MT6765) += spm/
+67:obj-$(CONFIG_MACH_MT6765) += $(subst ",,$(CONFIG_MTK_PLATFORM))/
+68:obj-$(CONFIG_MACH_MT6771) += $(subst ",,$(CONFIG_MTK_PLATFORM))/
+69:obj-$(CONFIG_MACH_MT6768) += $(subst ",,$(CONFIG_MTK_PLATFORM))/
+70:obj-$(CONFIG_MACH_MT6785) += $(subst ",,$(CONFIG_MTK_PLATFORM))/
+84:obj-$(CONFIG_MACH_MT6739) += $(subst ",,$(CONFIG_MTK_PLATFORM))/
+85:obj-$(CONFIG_MACH_MT8167) += $(subst ",,$(CONFIG_MTK_PLATFORM))/
+86:obj-$(CONFIG_MACH_MT8168) += $(subst ",,$(CONFIG_MTK_PLATFORM))/
+124:obj-$(CONFIG_MACH_MT6771) += spm_v4/
+125:obj-$(CONFIG_MACH_MT6739) += spm_v4/
+==CFG==
+1308:CONFIG_MTK_PLATFORM="mt6739"
+1310:CONFIG_MACH_MT6739=y
+1953:# CONFIG_SPMI is not set
