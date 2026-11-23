@@ -1,0 +1,66 @@
+name: Build Kernel
+
+on: workflow_dispatch
+
+jobs:
+  building-kernel:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Preparing
+        run: |
+          cd ${GITHUB_WORKSPACE}
+          sudo apt update && sudo apt upgrade -y
+          sudo apt-get install -y build-essential bc libssl-dev
+
+      - name: Building
+        run: |
+          cd ${GITHUB_WORKSPACE}
+          cd toolchain && mkdir -p clang2 && cd clang2
+          wget https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/+archive/refs/heads/android11-release.tar.gz
+          tar -xf android11-release.tar.gz && rm android11-release.tar.gz
+          ls
+          cd ${GITHUB_WORKSPACE}
+          export KBUILD_BUILD_USER="${{ github.actor }}"
+          export KBUILD_BUILD_HOST="${{ github.event.inputs.DEVICE_NAME }}"
+          chmod +x -R toolchain
+          chmod +x z64
+          ./z64
+
+      - name: Set Properties
+        id: props
+        run: |
+          echo "date=$(TZ=Asia/Jakarta date +%Y%m%d-%I%M%p)" >> $GITHUB_OUTPUT
+       
+      - name: Make Zip
+        run: |
+          cd ${GITHUB_WORKSPACE}
+          cd out/arch/arm64/boot
+          export DEVICE_NAME=SM-A022F
+          mv Image.gz-dtb boot.img-kernel
+          zip -r9 ${DEVICE_NAME}-${{ steps.props.outputs.date }}.zip boot.img-kernel
+          cp *.zip ${{ github.workspace }}/.
+        
+      - name: Release
+        uses: ncipollo/release-action@v1.12.0
+        with:
+          artifacts: |
+            ${{ github.workspace }}/*.zip
+          name: Compiled Kernel for SM-A022F - ${{ steps.props.outputs.date }}
+          draft: false
+          prerelease: false
+          tag: ${{ github.run_id }}-${{ steps.props.outputs.date }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            ## Notes
+              - Extract ${DEVICE_NAME}-${{ steps.props.outputs.date }}.zip, look your newly-compiled kernel inside.
+              - Include building logs.
+      
+      - name: Link of Release
+        run: |
+          echo "Enjoy your Newly Built 64-bit Kernel"
+          echo "https://github.com/${GITHUB_REPOSITORY}/releases/tag/${{ github.run_id }}-${{ steps.props.outputs.date }}"     

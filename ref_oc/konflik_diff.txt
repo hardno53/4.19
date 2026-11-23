@@ -1,0 +1,580 @@
+diff --cc arch/powerpc/kernel/rtas.c
+index a01f83ba739e,55b266d7afe1..000000000000
+--- a/arch/powerpc/kernel/rtas.c
++++ b/arch/powerpc/kernel/rtas.c
+@@@ -1056,6 -1056,147 +1056,150 @@@ struct pseries_errorlog *get_pseries_er
+  	return NULL;
+  }
+  
+++<<<<<<< HEAD
+++=======
++ #ifdef CONFIG_PPC_RTAS_FILTER
++ 
++ /*
++  * The sys_rtas syscall, as originally designed, allows root to pass
++  * arbitrary physical addresses to RTAS calls. A number of RTAS calls
++  * can be abused to write to arbitrary memory and do other things that
++  * are potentially harmful to system integrity, and thus should only
++  * be used inside the kernel and not exposed to userspace.
++  *
++  * All known legitimate users of the sys_rtas syscall will only ever
++  * pass addresses that fall within the RMO buffer, and use a known
++  * subset of RTAS calls.
++  *
++  * Accordingly, we filter RTAS requests to check that the call is
++  * permitted, and that provided pointers fall within the RMO buffer.
++  * The rtas_filters list contains an entry for each permitted call,
++  * with the indexes of the parameters which are expected to contain
++  * addresses and sizes of buffers allocated inside the RMO buffer.
++  */
++ struct rtas_filter {
++ 	const char *name;
++ 	int token;
++ 	/* Indexes into the args buffer, -1 if not used */
++ 	int buf_idx1;
++ 	int size_idx1;
++ 	int buf_idx2;
++ 	int size_idx2;
++ 
++ 	int fixed_size;
++ };
++ 
++ static struct rtas_filter rtas_filters[] __ro_after_init = {
++ 	{ "ibm,activate-firmware", -1, -1, -1, -1, -1 },
++ 	{ "ibm,configure-connector", -1, 0, -1, 1, -1, 4096 },	/* Special cased */
++ 	{ "display-character", -1, -1, -1, -1, -1 },
++ 	{ "ibm,display-message", -1, 0, -1, -1, -1 },
++ 	{ "ibm,errinjct", -1, 2, -1, -1, -1, 1024 },
++ 	{ "ibm,close-errinjct", -1, -1, -1, -1, -1 },
++ 	{ "ibm,open-errinjct", -1, -1, -1, -1, -1 },
++ 	{ "ibm,get-config-addr-info2", -1, -1, -1, -1, -1 },
++ 	{ "ibm,get-dynamic-sensor-state", -1, 1, -1, -1, -1 },
++ 	{ "ibm,get-indices", -1, 2, 3, -1, -1 },
++ 	{ "get-power-level", -1, -1, -1, -1, -1 },
++ 	{ "get-sensor-state", -1, -1, -1, -1, -1 },
++ 	{ "ibm,get-system-parameter", -1, 1, 2, -1, -1 },
++ 	{ "get-time-of-day", -1, -1, -1, -1, -1 },
++ 	{ "ibm,get-vpd", -1, 0, -1, 1, 2 },
++ 	{ "ibm,lpar-perftools", -1, 2, 3, -1, -1 },
++ 	{ "ibm,platform-dump", -1, 4, 5, -1, -1 },
++ 	{ "ibm,read-slot-reset-state", -1, -1, -1, -1, -1 },
++ 	{ "ibm,scan-log-dump", -1, 0, 1, -1, -1 },
++ 	{ "ibm,set-dynamic-indicator", -1, 2, -1, -1, -1 },
++ 	{ "ibm,set-eeh-option", -1, -1, -1, -1, -1 },
++ 	{ "set-indicator", -1, -1, -1, -1, -1 },
++ 	{ "set-power-level", -1, -1, -1, -1, -1 },
++ 	{ "set-time-for-power-on", -1, -1, -1, -1, -1 },
++ 	{ "ibm,set-system-parameter", -1, 1, -1, -1, -1 },
++ 	{ "set-time-of-day", -1, -1, -1, -1, -1 },
++ 	{ "ibm,suspend-me", -1, -1, -1, -1, -1 },
++ 	{ "ibm,update-nodes", -1, 0, -1, -1, -1, 4096 },
++ 	{ "ibm,update-properties", -1, 0, -1, -1, -1, 4096 },
++ 	{ "ibm,physical-attestation", -1, 0, 1, -1, -1 },
++ };
++ 
++ static bool in_rmo_buf(u32 base, u32 end)
++ {
++ 	return base >= rtas_rmo_buf &&
++ 		base < (rtas_rmo_buf + RTAS_RMOBUF_MAX) &&
++ 		base <= end &&
++ 		end >= rtas_rmo_buf &&
++ 		end < (rtas_rmo_buf + RTAS_RMOBUF_MAX);
++ }
++ 
++ static bool block_rtas_call(int token, int nargs,
++ 			    struct rtas_args *args)
++ {
++ 	int i;
++ 
++ 	for (i = 0; i < ARRAY_SIZE(rtas_filters); i++) {
++ 		struct rtas_filter *f = &rtas_filters[i];
++ 		u32 base, size, end;
++ 
++ 		if (token != f->token)
++ 			continue;
++ 
++ 		if (f->buf_idx1 != -1) {
++ 			base = be32_to_cpu(args->args[f->buf_idx1]);
++ 			if (f->size_idx1 != -1)
++ 				size = be32_to_cpu(args->args[f->size_idx1]);
++ 			else if (f->fixed_size)
++ 				size = f->fixed_size;
++ 			else
++ 				size = 1;
++ 
++ 			end = base + size - 1;
++ 			if (!in_rmo_buf(base, end))
++ 				goto err;
++ 		}
++ 
++ 		if (f->buf_idx2 != -1) {
++ 			base = be32_to_cpu(args->args[f->buf_idx2]);
++ 			if (f->size_idx2 != -1)
++ 				size = be32_to_cpu(args->args[f->size_idx2]);
++ 			else if (f->fixed_size)
++ 				size = f->fixed_size;
++ 			else
++ 				size = 1;
++ 			end = base + size - 1;
++ 
++ 			/*
++ 			 * Special case for ibm,configure-connector where the
++ 			 * address can be 0
++ 			 */
++ 			if (!strcmp(f->name, "ibm,configure-connector") &&
++ 			    base == 0)
++ 				return false;
++ 
++ 			if (!in_rmo_buf(base, end))
++ 				goto err;
++ 		}
++ 
++ 		return false;
++ 	}
++ 
++ err:
++ 	pr_err_ratelimited("sys_rtas: RTAS call blocked - exploit attempt?\n");
++ 	pr_err_ratelimited("sys_rtas: token=0x%x, nargs=%d (called by %s)\n",
++ 			   token, nargs, current->comm);
++ 	return true;
++ }
++ 
++ #else
++ 
++ static bool block_rtas_call(int token, int nargs,
++ 			    struct rtas_args *args)
++ {
++ 	return false;
++ }
++ 
++ #endif /* CONFIG_PPC_RTAS_FILTER */
++ 
+++>>>>>>> 00bec5497b5ce36a10c47a09d527805239e102d1
+  /* We assume to be passed big endian arguments */
+  asmlinkage int ppc_rtas(struct rtas_args __user *uargs)
+  {
+diff --cc arch/x86/events/intel/pt.c
+index 5af568cc4c8f,0661227d935c..000000000000
+--- a/arch/x86/events/intel/pt.c
++++ b/arch/x86/events/intel/pt.c
+@@@ -1219,7 -1217,7 +1219,11 @@@ static void pt_event_addr_filters_sync(
+  		return;
+  
+  	list_for_each_entry(filter, &head->list, entry) {
+++<<<<<<< HEAD
+ +		if (filter->path.dentry && !fr[range].start) {
+++=======
++ 		if (filter->path.dentry && !offs[range]) {
+++>>>>>>> 00bec5497b5ce36a10c47a09d527805239e102d1
+  			msr_a = msr_b = 0;
+  		} else {
+  			/* apply the offset */
+diff --cc drivers/regulator/core.c
+index e7de84046386,2c4439f3e12e..000000000000
+--- a/drivers/regulator/core.c
++++ b/drivers/regulator/core.c
+@@@ -4096,15 -4098,20 +4104,32 @@@ regulator_register(const struct regulat
+  	else if (regulator_desc->supply_name)
+  		rdev->supply_name = regulator_desc->supply_name;
+  
+++<<<<<<< HEAD
+ +	/*
+ +	 * Attempt to resolve the regulator supply, if specified,
+ +	 * but don't return an error if we fail because we will try
+ +	 * to resolve it again later as more regulators are added.
+ +	 */
+ +	if (regulator_resolve_supply(rdev))
+ +		rdev_dbg(rdev, "unable to resolve supply\n");
+ +
+ +	ret = set_machine_constraints(rdev, constraints);
+++=======
++ 	ret = set_machine_constraints(rdev);
++ 	if (ret == -EPROBE_DEFER) {
++ 		/* Regulator might be in bypass mode and so needs its supply
++ 		 * to set the constraints */
++ 		/* FIXME: this currently triggers a chicken-and-egg problem
++ 		 * when creating -SUPPLY symlink in sysfs to a regulator
++ 		 * that is just being created */
++ 		ret = regulator_resolve_supply(rdev);
++ 		if (!ret)
++ 			ret = set_machine_constraints(rdev);
++ 		else
++ 			rdev_dbg(rdev, "unable to resolve supply early: %pe\n",
++ 				 ERR_PTR(ret));
++ 	}
+++>>>>>>> 00bec5497b5ce36a10c47a09d527805239e102d1
+  	if (ret < 0)
+  		goto wash;
+  
+diff --cc drivers/scsi/ufs/ufshcd.c
+index 7481c29c67d1,f46fa8a2f658..000000000000
+--- a/drivers/scsi/ufs/ufshcd.c
++++ b/drivers/scsi/ufs/ufshcd.c
+@@@ -10779,15 -7797,6 +10783,18 @@@ int ufshcd_shutdown(struct ufs_hba *hba
+  		goto out;
+  
+  	pm_runtime_get_sync(hba->dev);
+++<<<<<<< HEAD
+ +
+ +	/* MTK PATCH */
+ +	ufs_mtk_device_quiesce(hba);
+ +
+ +	/*
+ +	 * MTK PATCH: Remove Unregister RPMB
+ +	 * device during shutdown and UFSHCD removal
+ +	 */
+ +	ufshcd_rpmb_remove(hba);
+++=======
+++>>>>>>> 00bec5497b5ce36a10c47a09d527805239e102d1
+  
+  	ret = ufshcd_suspend(hba, UFS_SHUTDOWN_PM);
+  out:
+diff --cc drivers/soc/mediatek/mtk-scpsys.c
+index 8c7c55006e79,d0b18cc7e61b..000000000000
+--- a/drivers/soc/mediatek/mtk-scpsys.c
++++ b/drivers/soc/mediatek/mtk-scpsys.c
+@@@ -719,25 -481,17 +719,32 @@@ static void mtk_register_power_domains(
+  	for (i = 0; i < num; i++) {
+  		struct scp_domain *scpd = &scp->domains[i];
+  		struct generic_pm_domain *genpd = &scpd->genpd;
++ 		bool on;
+  
+ +		if (MTK_SCPD_CAPS(scpd, MTK_SCPD_KEEP_DEFAULT_OFF)) {
+ +			if (scpsys_domain_is_on(scpd)) {
+ +				/* In order to balance the reference count */
+ +				genpd->power_on(genpd);
+ +				genpd->power_off(genpd);
+ +			}
+ +			pm_genpd_init(genpd, NULL, true);
+ +		} else {
+  		/*
+  		 * Initially turn on all domains to make the domains usable
+  		 * with !CONFIG_PM and to get the hardware in sync with the
+  		 * software.  The unused domains will be switched off during
+  		 * late_init time.
+  		 */
+++<<<<<<< HEAD
+ +			genpd->power_on(genpd);
+ +
+ +			pm_genpd_init(genpd, NULL, false);
+ +		}
+++=======
++ 		on = !WARN_ON(genpd->power_on(genpd) < 0);
++ 
++ 		pm_genpd_init(genpd, NULL, !on);
+++>>>>>>> 00bec5497b5ce36a10c47a09d527805239e102d1
+  	}
+  
+  	/*
+diff --cc drivers/usb/core/usb.h
+index ab48ae355591,abac87222093..000000000000
+--- a/drivers/usb/core/usb.h
++++ b/drivers/usb/core/usb.h
+@@@ -36,9 -36,9 +36,15 @@@ extern void usb_deauthorize_interface(s
+  extern void usb_authorize_interface(struct usb_interface *);
+  extern void usb_detect_quirks(struct usb_device *udev);
+  extern void usb_detect_interface_quirks(struct usb_device *udev);
+++<<<<<<< HEAD
+ +#ifdef CONFIG_USB_INTERFACE_LPM_LIST
+ +extern int usb_detect_interface_lpm(struct usb_device *udev);
+ +#endif
+++=======
++ extern bool usb_endpoint_is_blacklisted(struct usb_device *udev,
++ 		struct usb_host_interface *intf,
++ 		struct usb_endpoint_descriptor *epd);
+++>>>>>>> 00bec5497b5ce36a10c47a09d527805239e102d1
+  extern int usb_remove_device(struct usb_device *udev);
+  
+  extern int usb_get_device_descriptor(struct usb_device *dev,
+diff --cc drivers/usb/gadget/function/f_fs.c
+index 4e119fe10600,9f1bb8ed99bc..000000000000
+--- a/drivers/usb/gadget/function/f_fs.c
++++ b/drivers/usb/gadget/function/f_fs.c
+@@@ -1446,10 -1257,12 +1447,16 @@@ static long ffs_epfile_ioctl(struct fil
+  		default:
+  			desc_idx = 0;
+  		}
++ 
+  		desc = epfile->ep->descs[desc_idx];
++ 		memcpy(&desc1, desc, desc->bLength);
+  
+  		spin_unlock_irq(&epfile->ffs->eps_lock);
+++<<<<<<< HEAD
+ +		ret = copy_to_user((void __user *)value, desc, desc->bLength);
+++=======
++ 		ret = copy_to_user((void *)value, &desc1, desc1.bLength);
+++>>>>>>> 00bec5497b5ce36a10c47a09d527805239e102d1
+  		if (ret)
+  			ret = -EFAULT;
+  		return ret;
+diff --cc drivers/usb/host/xhci-hub.c
+index 5d774782991b,7f1685a54514..000000000000
+--- a/drivers/usb/host/xhci-hub.c
++++ b/drivers/usb/host/xhci-hub.c
+@@@ -1612,15 -1590,10 +1612,22 @@@ int xhci_bus_suspend(struct usb_hcd *hc
+  	hcd->state = HC_STATE_SUSPENDED;
+  	bus_state->next_statechange = jiffies + msecs_to_jiffies(10);
+  	spin_unlock_irqrestore(&xhci->lock, flags);
+++<<<<<<< HEAD
+ +#if IS_ENABLED(CONFIG_USB_XHCI_MTK_SUSPEND)
+ +	if (hcd->self.root_hub->do_remote_wakeup == 1) {
+ +		struct xhci_hcd_mtk *mtk = hcd_to_mtk(hcd);
+ +
+ +		dev_info(&hcd->self.root_hub->dev, "%s %d\n",
+ +			__func__, hcd->self.root_hub->do_remote_wakeup);
+ +		mtk_xhci_wakelock_unlock(mtk);
+ +	}
+ +#endif
+++=======
++ 
++ 	if (bus_state->bus_suspended)
++ 		usleep_range(5000, 10000);
++ 
+++>>>>>>> 00bec5497b5ce36a10c47a09d527805239e102d1
+  	return 0;
+  }
+  
+diff --cc fs/fs-writeback.c
+index df2176cce329,384f95e1936d..000000000000
+--- a/fs/fs-writeback.c
++++ b/fs/fs-writeback.c
+@@@ -1397,16 -1408,7 +1410,18 @@@ __writeback_single_inode(struct inode *
+  	 * write_inode()
+  	 */
+  	spin_lock(&inode->i_lock);
+- 
+  	dirty = inode->i_state & I_DIRTY;
+++<<<<<<< HEAD
+ +	if ((inode->i_state & I_DIRTY_TIME) &&
+ +	    ((dirty & (I_DIRTY_SYNC | I_DIRTY_DATASYNC)) ||
+ +	     wbc->sync_mode == WB_SYNC_ALL || wbc->for_sync ||
+ +	     time_after(jiffies, inode->dirtied_time_when +
+ +			dirtytime_expire_interval * HZ))) {
+ +		dirty |= I_DIRTY_TIME;
+ +		trace_writeback_lazytime(inode);
+ +	}
+++=======
+++>>>>>>> 00bec5497b5ce36a10c47a09d527805239e102d1
+  	inode->i_state &= ~dirty;
+  
+  	/*
+@@@ -1427,10 -1429,6 +1442,13 @@@
+  
+  	spin_unlock(&inode->i_lock);
+  
+++<<<<<<< HEAD
+ +	if (newly_dirty)
+ +		__mark_inode_dirty(inode, I_DIRTY_PAGES);
+ +	if (dirty & I_DIRTY_TIME)
+ +		mark_inode_dirty_sync(inode);
+++=======
+++>>>>>>> 00bec5497b5ce36a10c47a09d527805239e102d1
+  	/* Don't write the inode if only I_DIRTY_PAGES was set */
+  	if (dirty & ~I_DIRTY_PAGES) {
+  		int err = write_inode(inode, wbc);
+diff --cc include/linux/skbuff.h
+index 518032e46c5a,de3e59329b02..000000000000
+--- a/include/linux/skbuff.h
++++ b/include/linux/skbuff.h
+@@@ -1356,6 -1340,11 +1356,14 @@@ static inline void skb_mark_not_on_list
+  	skb->next = NULL;
+  }
+  
+++<<<<<<< HEAD
+++=======
++ /* Iterate through singly-linked GSO fragments of an skb. */
++ #define skb_list_walk_safe(first, skb, next_skb)                               \
++ 	for ((skb) = (first), (next_skb) = (skb) ? (skb)->next : NULL; (skb);  \
++ 	     (skb) = (next_skb), (next_skb) = (skb) ? (skb)->next : NULL)
++ 
+++>>>>>>> 00bec5497b5ce36a10c47a09d527805239e102d1
+  static inline void skb_list_del_init(struct sk_buff *skb)
+  {
+  	__list_del_entry(&skb->list);
+diff --cc kernel/events/core.c
+index 0783accd931c,75cf23232a92..000000000000
+--- a/kernel/events/core.c
++++ b/kernel/events/core.c
+@@@ -6468,8 -6452,7 +6469,12 @@@ static void perf_event_addr_filters_exe
+  	raw_spin_lock_irqsave(&ifh->lock, flags);
+  	list_for_each_entry(filter, &ifh->list, entry) {
+  		if (filter->path.dentry) {
+++<<<<<<< HEAD
+ +			event->addr_filter_ranges[count].start = 0;
+ +			event->addr_filter_ranges[count].size = 0;
+++=======
++ 			event->addr_filters_offs[count] = 0;
+++>>>>>>> 00bec5497b5ce36a10c47a09d527805239e102d1
+  			restart++;
+  		}
+  
+@@@ -7142,6 -7125,10 +7147,13 @@@ static bool perf_addr_filter_match(stru
+  				     struct file *file, unsigned long offset,
+  				     unsigned long size)
+  {
+++<<<<<<< HEAD
+++=======
++ 	/* d_inode(NULL) won't be equal to any mapped user-space file */
++ 	if (!filter->path.dentry)
++ 		return false;
++ 
+++>>>>>>> 00bec5497b5ce36a10c47a09d527805239e102d1
+  	if (d_inode(filter->path.dentry) != file_inode(file))
+  		return false;
+  
+@@@ -8455,19 -8441,15 +8467,29 @@@ static void perf_event_addr_filters_app
+  
+  	raw_spin_lock_irqsave(&ifh->lock, flags);
+  	list_for_each_entry(filter, &ifh->list, entry) {
+ -		event->addr_filters_offs[count] = 0;
+ +		if (filter->path.dentry) {
+ +			/*
+ +			 * Adjust base offset if the filter is associated to a
+ +			 * binary that needs to be mapped:
+ +			 */
+ +			event->addr_filter_ranges[count].start = 0;
+ +			event->addr_filter_ranges[count].size = 0;
+  
+++<<<<<<< HEAD
+ +			perf_addr_filter_apply(filter, mm, &event->addr_filter_ranges[count]);
+ +		} else {
+ +			event->addr_filter_ranges[count].start = filter->offset;
+ +			event->addr_filter_ranges[count].size  = filter->size;
+ +		}
+++=======
++ 		/*
++ 		 * Adjust base offset if the filter is associated to a binary
++ 		 * that needs to be mapped:
++ 		 */
++ 		if (filter->path.dentry)
++ 			event->addr_filters_offs[count] =
++ 				perf_addr_filter_apply(filter, mm);
+++>>>>>>> 00bec5497b5ce36a10c47a09d527805239e102d1
+  
+  		count++;
+  	}
+@@@ -8646,10 -8627,7 +8669,14 @@@ perf_event_parse_addr_filter(struct per
+  				ret = kern_path(filename, LOOKUP_FOLLOW,
+  						&filter->path);
+  				if (ret)
+++<<<<<<< HEAD
+ +					goto fail_free_name;
+ +
+ +				kfree(filename);
+ +				filename = NULL;
+++=======
++ 					goto fail;
+++>>>>>>> 00bec5497b5ce36a10c47a09d527805239e102d1
+  
+  				ret = -EINVAL;
+  				if (!filter->path.dentry ||
+diff --cc lib/random32.c
+index bab8adfd7014,f5e967f4adfa..000000000000
+--- a/lib/random32.c
++++ b/lib/random32.c
+@@@ -40,16 -40,6 +40,19 @@@
+  #include <linux/sched.h>
+  #include <asm/unaligned.h>
+  
+++<<<<<<< HEAD
+ +#ifdef CONFIG_RANDOM32_SELFTEST
+ +static void __init prandom_state_selftest(void);
+ +#else
+ +static inline void prandom_state_selftest(void)
+ +{
+ +}
+ +#endif
+ +
+ +DEFINE_PER_CPU(struct rnd_state, net_rand_state) __latent_entropy;
+ +
+++=======
+++>>>>>>> 00bec5497b5ce36a10c47a09d527805239e102d1
+  /**
+   *	prandom_u32_state - seeded pseudo-random number generator.
+   *	@state: pointer to state structure holding seeded state.
+diff --cc mm/memcontrol.c
+index 86b247360214,4e763cdccb33..000000000000
+--- a/mm/memcontrol.c
++++ b/mm/memcontrol.c
+@@@ -4275,9 -4236,7 +4269,13 @@@ static void __mem_cgroup_free(struct me
+  
+  	for_each_node(node)
+  		free_mem_cgroup_per_node_info(memcg, node);
+++<<<<<<< HEAD
+ +	free_percpu(memcg->stat);
+ +	/* poison memcg before freeing it */
+ +	memset(memcg, 0x78, sizeof(struct mem_cgroup));
+++=======
++ 	free_percpu(memcg->stat_cpu);
+++>>>>>>> 00bec5497b5ce36a10c47a09d527805239e102d1
+  	kfree(memcg);
+  }
+  
+diff --cc net/ipv4/syncookies.c
+index 68fbf24ba76b,bf8df824bae3..000000000000
+--- a/net/ipv4/syncookies.c
++++ b/net/ipv4/syncookies.c
+@@@ -389,8 -389,13 +389,17 @@@ struct sock *cookie_v4_check(struct soc
+  
+  	/* Try to redo what tcp_v4_send_synack did. */
+  	req->rsk_window_clamp = tp->window_clamp ? :dst_metric(&rt->dst, RTAX_WINDOW);
++ 	/* limit the window selection if the user enforce a smaller rx buffer */
++ 	full_space = tcp_full_space(sk);
++ 	if (sk->sk_userlocks & SOCK_RCVBUF_LOCK &&
++ 	    (req->rsk_window_clamp > full_space || req->rsk_window_clamp == 0))
++ 		req->rsk_window_clamp = full_space;
+  
+++<<<<<<< HEAD
+ +	tcp_select_initial_window(sock_net(sk), tcp_full_space(sk), req->mss,
+++=======
++ 	tcp_select_initial_window(full_space, req->mss,
+++>>>>>>> 00bec5497b5ce36a10c47a09d527805239e102d1
+  				  &req->rsk_rcv_wnd, &req->rsk_window_clamp,
+  				  ireq->wscale_ok, &rcv_wscale,
+  				  dst_metric(&rt->dst, RTAX_INITRWND));
+diff --cc net/ipv6/syncookies.c
+index c3b8f7557143,d1bfdb9c2f2d..000000000000
+--- a/net/ipv6/syncookies.c
++++ b/net/ipv6/syncookies.c
+@@@ -244,7 -244,13 +244,17 @@@ struct sock *cookie_v6_check(struct soc
+  	}
+  
+  	req->rsk_window_clamp = tp->window_clamp ? :dst_metric(dst, RTAX_WINDOW);
+++<<<<<<< HEAD
+ +	tcp_select_initial_window(sock_net(sk), tcp_full_space(sk), req->mss,
+++=======
++ 	/* limit the window selection if the user enforce a smaller rx buffer */
++ 	full_space = tcp_full_space(sk);
++ 	if (sk->sk_userlocks & SOCK_RCVBUF_LOCK &&
++ 	    (req->rsk_window_clamp > full_space || req->rsk_window_clamp == 0))
++ 		req->rsk_window_clamp = full_space;
++ 
++ 	tcp_select_initial_window(full_space, req->mss,
+++>>>>>>> 00bec5497b5ce36a10c47a09d527805239e102d1
+  				  &req->rsk_rcv_wnd, &req->rsk_window_clamp,
+  				  ireq->wscale_ok, &rcv_wscale,
+  				  dst_metric(dst, RTAX_INITRWND));
+diff --cc sound/core/pcm_native.c
+index f825639613bc,c78db361cbba..000000000000
+--- a/sound/core/pcm_native.c
++++ b/sound/core/pcm_native.c
+@@@ -721,8 -721,13 +721,18 @@@ static int snd_pcm_hw_params(struct snd
+  		runtime->boundary *= 2;
+  
+  	/* clear the buffer for avoiding possible kernel info leaks */
+++<<<<<<< HEAD
+ +	if (runtime->dma_area && !substream->ops->copy_user)
+ +		memset_io(runtime->dma_area, 0, runtime->dma_bytes);
+++=======
++ 	if (runtime->dma_area && !substream->ops->copy_user) {
++ 		size_t size = runtime->dma_bytes;
++ 
++ 		if (runtime->info & SNDRV_PCM_INFO_MMAP)
++ 			size = PAGE_ALIGN(size);
++ 		memset(runtime->dma_area, 0, size);
++ 	}
+++>>>>>>> 00bec5497b5ce36a10c47a09d527805239e102d1
+  
+  	snd_pcm_timer_resolution_change(substream);
+  	snd_pcm_set_state(substream, SNDRV_PCM_STATE_SETUP);
+* Unmerged path drivers/media/platform/mtk-vcodec/mtk_vcodec_dec_pm.c

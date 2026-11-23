@@ -1,0 +1,660 @@
+../drivers/input/touchscreen/ili9881x/ili9881x.c:98:5: warning: unused variable 'input_log_buf' [-Wunused-variable]
+   98 |                                 input_err(true, ilits->dev, "can't set pins_on_state state : %d\n", retval);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:99:4: warning: unused variable 'input_log_buf' [-Wunused-variable]
+   99 |                         input_info(true, ilits->dev, "%s idle\n", __func__);
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:105:5: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  105 |                                 input_err(true, ilits->dev, "can't set pins_off_state state : %d\n", retval);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:106:4: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  106 |                         input_info(true, ilits->dev, "%s sleep\n", __func__);
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:116:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  116 |                 input_err(true, ilits->dev, "%s fw upgrade processing, ignore\n", __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:125:4: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  125 |                         input_err(true, ilits->dev, "%s Switch MP mode failed\n", __func__);
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:147:5: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  147 |                                 input_err(true, ilits->dev, "%s FW upgrade failed during mp test\n", __func__);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:150:5: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  150 |                                 input_err(true, ilits->dev, "%s TP Reset failed during mp test\n", __func__);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:175:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  175 |                 input_info(true, ilits->dev, "%s Switch to AP mode\n", __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:179:5: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  179 |                                 input_err(true, ilits->dev, "%s FW upgrade failed\n", __func__);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:184:4: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  184 |                         input_err(true, ilits->dev, "%s TP Reset failed\n", __func__);
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:188:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  188 |                 input_info(true, ilits->dev, "%s Switch to Gesture mode\n", __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:192:4: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  192 |                         input_err(true, ilits->dev, "%s Move gesture code failed\n", __func__);
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:194:4: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  194 |                         input_info(true, ilits->dev, "%s Enable gesture debug func\n", __func__);
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:199:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  199 |                 input_info(true, ilits->dev, "%s Switch to Test mode\n", __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:204:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  204 |                 input_err(true, ilits->dev, "%s Unknown TP mode: %x\n", __func__, mode);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:210:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  210 |                 input_err(true, ilits->dev, "%s Switch TP mode (%d) failed\n", __func__, mode);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:230:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  230 |                 input_info(true, ilits->dev,
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  231 |                                 "tc:%d ver:%02d%02d%02d%02d// #%d %d\n",
+      |                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  232 |                                 ilits->touch_count, ilits->fw_cur_info[2],ilits->fw_cur_info[3],ilits->fw_cur_info[4],
+      |                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  233 |                                 ilits->fw_cur_info[5], ilits->print_info_cnt_open, ilits->print_info_cnt_release);
+      |                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:250:2: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  250 |         input_info(true, ilits->dev, "%s Doing gesture recovery\n", __func__);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:262:2: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  262 |         input_info(true, ilits->dev, "%s Doing spi recovery\n", __func__);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:264:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  264 |                 input_err(true, ilits->dev, "%s FW upgrade failed\n", __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:277:50: warning: format specifies type 'char *' but the argument has type 'int' [-Wformat]
+  277 |                 input_err(true, ilits->dev, "%s ret = 0x%x\n", ret, __func__);
+      |                                              ~~                ^~~
+      |                                              %d
+../include/uapi/linux/input.h:118:30: note: expanded from macro 'input_err'
+  118 |         dev_err(dev, SECLOG fmt, ## __VA_ARGS__);                               \
+      |                             ~~~     ^~~~~~~~~~~
+../include/linux/device.h:1453:32: note: expanded from macro 'dev_err'
+ 1453 |         _dev_err(dev, dev_fmt(fmt), ##__VA_ARGS__)
+      |                               ~~~     ^~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:277:55: warning: format specifies type 'unsigned int' but the argument has type 'const char *' [-Wformat]
+  277 |                 input_err(true, ilits->dev, "%s ret = 0x%x\n", ret, __func__);
+      |                                                         ~~          ^~~~~~~~
+      |                                                         %s
+../include/uapi/linux/input.h:118:30: note: expanded from macro 'input_err'
+  118 |         dev_err(dev, SECLOG fmt, ## __VA_ARGS__);                               \
+      |                             ~~~     ^~~~~~~~~~~
+../include/linux/device.h:1453:32: note: expanded from macro 'dev_err'
+ 1453 |         _dev_err(dev, dev_fmt(fmt), ##__VA_ARGS__)
+      |                               ~~~     ^~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:277:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  277 |                 input_err(true, ilits->dev, "%s ret = 0x%x\n", ret, __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:293:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  293 |                 input_err(true, ilits->dev, "%s SPI ACK failed, doing spi recovery\n", __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:312:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  312 |                 input_err(true, ilits->dev, "%s Failed to open %s\n", __func__, POWER_STATUS_PATH);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:332:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  332 |                 input_err(true, ilits->dev, "%s Read power status failed\n", __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:341:5: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  341 |                                 input_err(true, ilits->dev, "%s Write plug in failed\n", __func__);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:348:5: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  348 |                                 input_err(true, ilits->dev, "%s Write plug out failed\n", __func__);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:361:5: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  361 |                                 input_err(true, ilits->dev, "%s wq esd is null\n", __func__);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:379:5: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  379 |                                 input_err(true, ilits->dev, "%s WQ BAT is null\n", __func__);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:395:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  395 |                 input_err(true, ilits->dev, "%s Unknown WQ type, %d\n", __func__, type);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:404:2: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  404 |         input_info(true, ilits->dev, "%s,mode:%d\n", __func__, mode);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:407:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  407 |                 input_info(true, ilits->dev, "%s power off satus\n", __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:415:5: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  415 |                                 input_err(true, ilits->dev, "%s DEAD_ZONE_ENABLE failed\n", __func__);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:421:5: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  421 |                                 input_err(true, ilits->dev, "%s SIP_MODE_ENABLE failed\n", __func__);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:427:5: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  427 |                                 input_err(true, ilits->dev, "%s GAME_MODE_ENABLE failed\n", __func__);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:433:5: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  433 |                                 input_err(true, ilits->dev, "%s clear_cover_mode_enabled failed\n", __func__);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:439:5: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  439 |                                 input_err(true, ilits->dev, "%s ear detect enabled fail(%d)\n", __func__,ilits->prox_face_mode);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:447:6: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  447 |                                         input_err(true, ilits->dev, "%s proximity report start failed\n", __func__);
+      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:450:6: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  450 |                                         input_err(true, ilits->dev, "%s Write sleep in cmd failed\n", __func__);
+      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:458:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  458 |                 input_err(true, ilits->dev, "%s Unknown mode\n", __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:494:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  494 |                 input_info(true, ilits->dev, "%s fw upgrade or mp still running, ignore sleep requst\n", __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:501:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  501 |                 input_info(true, ilits->dev, "%s skip, already mode %d\n", __func__, mode);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:523:5: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  523 |                                 input_err(true, ilits->dev, "%s Write sense stop cmd failed\n", __func__);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:525:5: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  525 |                                 input_err(true, ilits->dev, "%s Check busy timeout during suspend\n", __func__);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:528:15: warning: format specifies type 'int' but the argument has type 'long' [-Wformat]
+  527 |                 input_info(true, ilits->dev, "%s prox_power_off:%d, prox_face_mode:%d, gesture:%d, ges_sym:0x%x, incell_power_state:%d\n",
+      |                                                                 ~~
+      |                                                                 %ld
+  528 |                                 __func__, ilits->prox_power_off, ilits->prox_face_mode,
+      |                                           ^~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:113:31: note: expanded from macro 'input_info'
+  113 |         dev_info(dev, SECLOG fmt, ## __VA_ARGS__);                              \
+      |                              ~~~     ^~~~~~~~~~~
+../include/linux/device.h:1459:33: note: expanded from macro 'dev_info'
+ 1459 |         _dev_info(dev, dev_fmt(fmt), ##__VA_ARGS__)
+      |                                ~~~     ^~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:529:21: warning: format specifies type 'unsigned int' but the argument has type 'struct gesture_symbol' [-Wformat]
+  527 |                 input_info(true, ilits->dev, "%s prox_power_off:%d, prox_face_mode:%d, gesture:%d, ges_sym:0x%x, incell_power_state:%d\n",
+      |                                                                                                              ~~
+  528 |                                 __func__, ilits->prox_power_off, ilits->prox_face_mode,
+  529 |                                 ilits->gesture, ilits->ges_sym, ilits->incell_power_state, ilits->incell_power_state, ilits->incell_power_state);
+      |                                                 ^~~~~~~~~~~~~~
+../include/uapi/linux/input.h:113:31: note: expanded from macro 'input_info'
+  113 |         dev_info(dev, SECLOG fmt, ## __VA_ARGS__);                              \
+      |                              ~~~     ^~~~~~~~~~~
+../include/linux/device.h:1459:33: note: expanded from macro 'dev_info'
+ 1459 |         _dev_info(dev, dev_fmt(fmt), ##__VA_ARGS__)
+      |                                ~~~     ^~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:529:64: warning: data argument not used by format string [-Wformat-extra-args]
+  527 |                 input_info(true, ilits->dev, "%s prox_power_off:%d, prox_face_mode:%d, gesture:%d, ges_sym:0x%x, incell_power_state:%d\n",
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  528 |                                 __func__, ilits->prox_power_off, ilits->prox_face_mode,
+      |                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  529 |                                 ilits->gesture, ilits->ges_sym, ilits->incell_power_state, ilits->incell_power_state, ilits->incell_power_state);
+      |                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:113:31: note: expanded from macro 'input_info'
+  113 |         dev_info(dev, SECLOG fmt, ## __VA_ARGS__);                              \
+      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+../include/linux/device.h:1459:33: note: expanded from macro 'dev_info'
+ 1459 |         _dev_info(dev, dev_fmt(fmt), ##__VA_ARGS__)
+      |                        ~~~~~~~~~~~~    ^
+../drivers/input/touchscreen/ili9881x/ili9881x.c:527:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  527 |                 input_info(true, ilits->dev, "%s prox_power_off:%d, prox_face_mode:%d, gesture:%d, ges_sym:0x%x, incell_power_state:%d\n",
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  528 |                                 __func__, ilits->prox_power_off, ilits->prox_face_mode,
+      |                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  529 |                                 ilits->gesture, ilits->ges_sym, ilits->incell_power_state, ilits->incell_power_state, ilits->incell_power_state);
+      |                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:539:6: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  539 |                                         input_err(true, ilits->dev, "%s Write sleep in cmd failed\n", __func__);
+      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:560:36: warning: format specifies type 'unsigned int' but the argument has type 'struct gesture_symbol' [-Wformat]
+  559 |                 input_info(true, ilits->dev, "%s ilits->power_status:%d, ges_sym:0x%x\n",
+      |                                                                                    ~~
+  560 |                                 __func__, ilits->power_status, ilits->ges_sym);
+      |                                                                ^~~~~~~~~~~~~~
+../include/uapi/linux/input.h:113:31: note: expanded from macro 'input_info'
+  113 |         dev_info(dev, SECLOG fmt, ## __VA_ARGS__);                              \
+      |                              ~~~     ^~~~~~~~~~~
+../include/linux/device.h:1459:33: note: expanded from macro 'dev_info'
+ 1459 |         _dev_info(dev, dev_fmt(fmt), ##__VA_ARGS__)
+      |                                ~~~     ^~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:559:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  559 |                 input_info(true, ilits->dev, "%s ilits->power_status:%d, ges_sym:0x%x\n",
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  560 |                                 __func__, ilits->power_status, ilits->ges_sym);
+      |                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:600:5: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  600 |                                 input_err(true, ilits->dev, "%sFW upgrade failed during resume\n", __func__);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:603:5: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  603 |                                 input_err(true, ilits->dev, "%sTP Reset failed during resume\n", __func__);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:623:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  623 |                 input_err(true, ilits->dev, "%sUnknown sleep mode, %d\n", __func__, mode);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:642:2: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  642 |         input_info(true, ilits->dev, "%s end (mode %d)\n", __func__, ilits->sleep_handler_mode);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:655:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  655 |                 input_info(true, ilits->dev, "%s FW upgrade fail\n", __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:658:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  658 |                 input_info(true, ilits->dev, "%s FW upgrade pass\n", __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:675:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  675 |                 input_info(true, ilits->dev, "%s Registre touch to input subsystem\n", __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:742:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  742 |                 input_info(true, ilits->dev, "%s Gesture demo mode control = %d\n",
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  743 |                                 __func__,  ilits->gesture_demo_ctrl);
+      |                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:745:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  745 |                 input_info(true, ilits->dev, "%s knock_en setting\n", __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:771:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  771 |                 input_err(true, ilits->dev, "%sUnknow TP data format\n", __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:783:4: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  783 |                         input_err(true, ilits->dev, "%sswitch to format %d failed\n", __func__, format);
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:795:4: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  795 |                         input_err(true, ilits->dev, "%s switch to format %d failed\n", __func__, format);
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:810:5: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  810 |                                 input_err(true, ilits->dev, "%s write gesture mode failed\n", __func__);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:816:2: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  816 |         input_info(true, ilits->dev, "%s TP mode = %d, format = %d, len = %d\n",
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  817 |                 __func__, tp_mode, ilits->tp_data_format, ilits->tp_data_len);
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:834:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  834 |                 input_info(true, ilits->dev, "%s ignore report request\n", __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:839:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  839 |                 input_info(true, ilits->dev, "%s ignore int triggered by recovery\n", __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:854:5: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  854 |                                 input_err(true, ilits->dev, "%ssystem(spi) can't finished resuming procedure.",
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  855 |                                                 __func__);
+      |                                                 ~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:864:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  864 |                 input_err(true, ilits->dev, "%sLength of packet is invaild\n", __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:880:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  880 |                 input_err(true, ilits->dev, "%s Read report packet failed, ret = %d\n", __func__, ret);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:885:15: warning: format specifies type 'int' but the argument has type 'long' [-Wformat]
+  884 |                         input_info(true, ilits->dev, "%s prox_power_off:%d, ilits->tp_suspend:%d, ilits->actual_tp_mode:%d, prox_face_mode:%d, gesture:%d,\n",
+      |                                                                         ~~
+      |                                                                         %ld
+  885 |                                 __func__, ilits->prox_power_off, ilits->tp_suspend, ilits->actual_tp_mode,
+      |                                           ^~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:113:31: note: expanded from macro 'input_info'
+  113 |         dev_info(dev, SECLOG fmt, ## __VA_ARGS__);                              \
+      |                              ~~~     ^~~~~~~~~~~
+../include/linux/device.h:1459:33: note: expanded from macro 'dev_info'
+ 1459 |         _dev_info(dev, dev_fmt(fmt), ##__VA_ARGS__)
+      |                                ~~~     ^~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:884:4: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  884 |                         input_info(true, ilits->dev, "%s prox_power_off:%d, ilits->tp_suspend:%d, ilits->actual_tp_mode:%d, prox_face_mode:%d, gesture:%d,\n",
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  885 |                                 __func__, ilits->prox_power_off, ilits->tp_suspend, ilits->actual_tp_mode,
+      |                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  886 |                                 ilits->prox_face_mode, ilits->gesture);
+      |                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:890:5: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  890 |                                 input_err(true, ilits->dev, "%s Gesture failed, doing gesture recovery\n", __func__);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:892:6: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  892 |                                         input_err(true, ilits->dev, "%s Failed to recover gesture\n", __func__);
+      |                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:895:5: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  895 |                                 input_err(true, ilits->dev, "%s SPI ACK failed, doing spi recovery\n", __func__);
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:912:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  912 |                 input_err(true, ilits->dev, "%s Checksum Error (0x%X)! Pack = 0x%X, len = %d\n",
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  913 |                 __func__, checksum, pack_checksum, rlen);
+      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:952:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  952 |                 input_info(true, ilits->dev, "%s gesture fail reason code = 0x%02x", __func__, trdata[1]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:958:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  958 |                 input_err(true, ilits->dev, "%s Unknown packet id, %x\n", __func__, pid);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:994:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  994 |                 input_info(true, ilits->dev, "%s TP IC Code RST\n", __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:997:4: warning: unused variable 'input_log_buf' [-Wunused-variable]
+  997 |                         input_err(true, ilits->dev, "%s IC Code reset failed\n", __func__);
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:1000:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+ 1000 |                 input_info(true, ilits->dev, "%s TP IC whole RST\n", __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:1003:4: warning: unused variable 'input_log_buf' [-Wunused-variable]
+ 1003 |                         input_err(true, ilits->dev, "%s IC whole reset failed\n", __func__);
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:1006:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+ 1006 |                 input_info(true, ilits->dev, "%s TP HW RST\n", __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:1010:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+ 1010 |                 input_err(true, ilits->dev, "%s Unknown reset mode, %d\n", __func__, mode);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:1118:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+ 1118 |                 input_err(true, ilits->dev, "%s Couldn't find any tp modules, applying default settings\n", __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:1130:2: warning: unused variable 'input_log_buf' [-Wunused-variable]
+ 1130 |         input_info(true, ilits->dev, "%s Found %s module: ini path = %s, fw path = (%s, %s, %d)\n",
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 1131 |                         __func__,
+      |                         ~~~~~~~~~
+ 1132 |                         ilits->md_name,
+      |                         ~~~~~~~~~~~~~~~
+ 1133 |                         ilits->md_ini_path,
+      |                         ~~~~~~~~~~~~~~~~~~~
+ 1134 |                         ilits->md_fw_filp_path,
+      |                         ~~~~~~~~~~~~~~~~~~~~~~~
+ 1135 |                         ilits->md_fw_rq_path,
+      |                         ~~~~~~~~~~~~~~~~~~~~~
+ 1136 |                         ilits->md_fw_ili_size);
+      |                         ~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:1148:2: warning: unused variable 'input_log_buf' [-Wunused-variable]
+ 1148 |         input_info(true, ilits->dev, "%s driver version = %s\n", __func__, DRIVER_VERSION);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:1174:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+ 1174 |                 input_err(true, ilits->dev, "%s TP Reset failed during init\n", __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:1187:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+ 1187 |                 input_err(true, ilits->dev, "%s Failed to enable ice mode during ili_tddi_init\n", __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:1190:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+ 1190 |                 input_err(true, ilits->dev, "%s Not found ilitek chip\n", __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:1195:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+ 1195 |                 input_err(true, ilits->dev, "%s Chip info is incorrect\n", __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:1205:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+ 1205 |                 input_err(true, ilits->dev, "%s Failed to ili_sec_fn_init\n", __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:1214:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+ 1214 |                 input_err(true, ilits->dev, "%s Failed to create fw upgrade thread\n", __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:1243:3: warning: unused variable 'input_log_buf' [-Wunused-variable]
+ 1243 |                 input_err(true, ilits->dev, "%s wakeup source request failed\n", __func__);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:117:14: note: expanded from macro 'input_err'
+  117 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+../drivers/input/touchscreen/ili9881x/ili9881x.c:1250:2: warning: unused variable 'input_log_buf' [-Wunused-variable]
+ 1250 |         input_info(true, ilits->dev, "%s remove ilitek dev\n", __func__);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../include/uapi/linux/input.h:112:14: note: expanded from macro 'input_info'
+  112 |         static char input_log_buf[INPUT_LOG_BUF_SIZE];                          \
+      |                     ^~~~~~~~~~~~~
+97 warnings generated.
+aarch64-linux-gnu-ld: warning: -z norelro ignored
+aarch64-linux-gnu-ld: warning: -z norelro ignored
+aarch64-linux-gnu-ld: warning: -z norelro ignored

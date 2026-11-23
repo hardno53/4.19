@@ -1,0 +1,5 @@
+#!/bin/bash
+cd /workspaces/4.19/kernel-4.19.325
+M="make O=out ARCH=arm64 CC=clang CROSS_COMPILE=aarch64-linux-gnu-"
+$M -j$(nproc) Image 2>&1 | tee build.log
+[ ${PIPESTATUS[0]} -ne 0 ] && $M Image 2>&1 | tee build.log

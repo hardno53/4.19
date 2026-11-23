@@ -1,0 +1,28 @@
+make[1]: Entering directory '/workspaces/4.19/kernel-4.19.325/out'
+  GEN     ./Makefile
+  Using .. as source for kernel
+  CALL    ../scripts/checksyscalls.sh
+  CHK     include/generated/compile.h
+  CC      drivers/input/touchscreen/ili9881x/ili9881x.o
+MTK_GPU_VERSION 1 = rgx
+*MTK_GPU_VERSION = rgx auckland 1.8ED
+[GPU_DEBUG] MTK_PLATFORM = mt6739
+  AR      drivers/input/touchscreen/ili9881x/built-in.a
+  AR      drivers/input/touchscreen/built-in.a
+  AR      drivers/input/built-in.a
+  AR      drivers/built-in.a
+  GEN     .version
+  CHK     include/generated/compile.h
+  UPD     include/generated/compile.h
+  CC      init/version.o
+  AR      init/built-in.a
+  AR      built-in.a
+  LD      vmlinux.o
+  MODPOST vmlinux.o
+  KSYM    .tmp_kallsyms1.o
+  KSYM    .tmp_kallsyms2.o
+  LD      vmlinux
+  SORTEX  vmlinux
+  SYSMAP  System.map
+  OBJCOPY arch/arm64/boot/Image
+make[1]: Leaving directory '/workspaces/4.19/kernel-4.19.325/out'

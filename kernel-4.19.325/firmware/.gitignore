@@ -1,0 +1,7 @@
+*.gen.S
+*.fw
+*.bin
+!tsp_novatek/nt36525_a02_csot.bin
+*.csp
+*.dsp
+ihex2fw

@@ -4,6 +4,7 @@
 /apply_con.sh
 /*.log
 /*.img
-/kernel-*/
 /*console.c
 /alive
+kernel-4.19.325/out/
+ref_oc/out/
