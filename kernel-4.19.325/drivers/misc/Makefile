@@ -63,3 +63,4 @@ obj-y += a02_kpd.o
 obj-y += a02_pwrap.o
 obj-y += a02_pwkey.o
 obj-$(CONFIG_MEDIATEK_SOLUTION) += mediatek/
+obj-y += sec_rr.o
