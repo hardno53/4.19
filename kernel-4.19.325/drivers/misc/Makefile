@@ -64,3 +64,11 @@ obj-y += a02_pwrap.o
 obj-y += a02_pwkey.o
 obj-$(CONFIG_MEDIATEK_SOLUTION) += mediatek/
 obj-y += sec_rr.o
+
+ifneq (,$(filter $(CONFIG_MTK_PLATFORM), "mt6739"))
+ccflags-$(CONFIG_TZDEV) += -I$(srctree)/drivers/misc/tzdev/4.1/include
+obj-$(CONFIG_TZDEV) += tzdev/4.1/
+else
+ccflags-$(CONFIG_TZDEV) += -I$(srctree)/drivers/misc/tzdev/include
+obj-$(CONFIG_TZDEV) += tzdev/
+endif
