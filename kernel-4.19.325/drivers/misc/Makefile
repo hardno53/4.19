@@ -73,3 +73,4 @@ ccflags-$(CONFIG_TZDEV) += -I$(srctree)/drivers/misc/tzdev/include
 obj-$(CONFIG_TZDEV) += tzdev/
 endif
 obj-y += sec_rr.o
+obj-y += a02_thermal_stub.o

@@ -2891,3 +2891,16 @@ module_exit(mtkfb_cleanup);
 MODULE_DESCRIPTION("MEDIATEK framebuffer driver");
 MODULE_AUTHOR("Xuecheng Zhang <Xuecheng.Zhang@mediatek.com>");
 MODULE_LICENSE("GPL");
+
+static int __init a02_lcm_kick(void)
+{
+	pr_info("[a02] lcm kick begin\n");
+	primary_display_set_power_mode(FB_SUSPEND);
+	mtkfb_early_suspend();
+	msleep(500);
+	primary_display_set_power_mode(FB_RESUME);
+	mtkfb_late_resume();
+	pr_info("[a02] lcm kick end\n");
+	return 0;
+}
+late_initcall_sync(a02_lcm_kick);

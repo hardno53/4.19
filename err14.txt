@@ -1,6 +1,0 @@
-0
-      5 undefined reference to `spm_sodi_mempll_pwr_mode'
-      4 undefined reference to `spm_enable_sodi'
-      2 undefined reference to `spm_enable_sodi3'
-      2 undefined reference to `dvfsrc_mdsrclkena_control_nolock'
-      1 undefined reference to `spm_sodi_set_vdo_mode'

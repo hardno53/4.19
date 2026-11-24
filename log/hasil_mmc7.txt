@@ -1,0 +1,41 @@
+3f349ff92 k419: mmc7 working (mt2712 compat), docs/scripts
+
+ build_kernel.sh | 60 ---------------------------------------------------------
+ 1 file changed, 60 deletions(-)
+==
+b84de4d54 Pending changes exported from your codespace
+CATATAN_PULIHKAN.txt
+k419_backup.tgz
+k419_files.txt
+30935998c backup: perbaiki daftar file (11 file)
+k419_backup.tgz
+k419_files.txt
+de9bb2a01 backup: a02_pwrap, a02_pwkey (power+voldown)
+k419_backup.tgz
+k419_files.txt
+3b7b5b92a backup: a02_kpd, a02_rr
+k419_backup.tgz
+k419_files.txt
+dcd513cdc restart via wdt toprgu sebelum PSCI, MEDIATEK_WATCHDOG on
+k419_backup.tgz
+==
+CATATAN_PULIHKAN.txt
+Documentation/ABI/testing/sysfs-devices-mmc
+Documentation/devicetree/bindings/clock/qcom,mmcc.txt
+Documentation/devicetree/bindings/iio/magnetometer/mmc35240.txt
+Documentation/devicetree/bindings/mmc/amlogic,meson-gx.txt
+Documentation/devicetree/bindings/mmc/arasan,sdhci.txt
+Documentation/devicetree/bindings/mmc/atmel-hsmci.txt
+Documentation/devicetree/bindings/mmc/brcm,bcm2835-sdhost.txt
+Documentation/devicetree/bindings/mmc/brcm,kona-sdhci.txt
+Documentation/devicetree/bindings/mmc/brcm,sdhci-brcmstb.txt
+Documentation/devicetree/bindings/mmc/brcm,sdhci-iproc.txt
+Documentation/devicetree/bindings/mmc/cavium-mmc.txt
+Documentation/devicetree/bindings/mmc/davinci_mmc.txt
+Documentation/devicetree/bindings/mmc/exynos-dw-mshc.txt
+Documentation/devicetree/bindings/mmc/fsl-esdhc.txt
+Documentation/devicetree/bindings/mmc/fsl-imx-esdhc.txt
+Documentation/devicetree/bindings/mmc/fsl-imx-mmc.txt
+Documentation/devicetree/bindings/mmc/img-dw-mshc.txt
+Documentation/devicetree/bindings/mmc/k3-dw-mshc.txt
+Documentation/devicetree/bindings/mmc/marvell,xenon-sdhci.txt

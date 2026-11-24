@@ -1,0 +1,49 @@
+#
+# MTK MSDC Driver Configs
+#
+config MTK_MMC_DEBUG
+	bool "enable msdc debug buffer"
+	depends on (MMC_MTK_PRO||MMC_MTK_SDIO) && !(MTK_ENABLE_AGO)
+	default y
+	help
+	   if y, then enable msdc debug buffer.19:MTK_PLATFORM := $(subst ",,$(CONFIG_MTK_PLATFORM))
+20:ccflags-y += -I$(srctree)/drivers/misc/mediatek/include
+21:ccflags-y += -I$(srctree)/drivers/misc/mediatek/include/mt-plat/$(MTK_PLATFORM)/include
+22:ccflags-y += -I$(srctree)/drivers/misc/mediatek/include/mt-plat
+23:ccflags-y += -I$(srctree)/drivers/misc/mediatek/base/power/$(MTK_PLATFORM)
+24:ccflags-y += -I$(srctree)/drivers/misc/mediatek/base/power/include
+25:#obj-$(CONFIG_MMC_MTK_PRO) += $(subst ",,$(CONFIG_MTK_PLATFORM))/
+28:ccflags-y += -I$(srctree)/drivers/misc/mediatek/fde_aes/$(MTK_PLATFORM)
+33:ccflags-y += -I$(srctree)/drivers/mmc/host/mediatek/rpmb/drrpmb/public
+34:ccflags-y += -I$(srctree)/drivers/mmc/host/mediatek/rpmb/drrpmb_gp/public
+35:ccflags-y += -I$(srctree)/drivers/mmc/host/mediatek/rpmb/tlrpmb/public
+38:ccflags-y += -I$(srctree)
+40:ccflags-y += -I$(srctree)/drivers
+41:ccflags-y += -I$(srctree)/drivers/mmc/host/mediatek/$(MTK_PLATFORM)
+43:ifeq ($(CONFIG_MTK_PLATFORM), "mt6758")
+44:ccflags-y += -I$(srctree)/drivers/mmc/host/mediatek/mt6758
+45:ccflags-y += -I$(srctree)/drivers/mmc/host/mediatek/mt6758/mt6758
+46:obj-$(CONFIG_MMC_MTK_PRO) += mt6758/
+48:ifeq ($(CONFIG_MTK_PLATFORM), "mt6771")
+49:ccflags-y += -I$(srctree)/drivers/mmc/host/mediatek/ComboA
+50:ccflags-y += -I$(srctree)/drivers/mmc/host/mediatek/ComboA/mt6771
+51:obj-$(CONFIG_MMC_MTK_PRO) += ComboA/
+53:ifeq ($(CONFIG_MTK_PLATFORM), "mt6739")
+54:ccflags-y += -I$(srctree)/drivers/mmc/host/mediatek/ComboA
+55:ccflags-y += -I$(srctree)/drivers/mmc/host/mediatek/ComboA/mt6739
+== header hilang di 4.19:
+dt-bindings/clock/mt6761-clk.h
+dt-bindings/clock/mt6765-clk.h
+dt-bindings/clock/mt6768-clk.h
+dt-bindings/clock/mt6853-clk.h
+dt-bindings/mmc/mt6761-msdc.h
+dt-bindings/mmc/mt6765-msdc.h
+dt-bindings/mmc/mt6768-msdc.h
+dt-bindings/mmc/mt6853-msdc.h
+fde_aes.h
+fde_aes_dbg.h
+linux/hie.h
+linux/sec_class.h
+linux/soc/mediatek/mtk_sip_svc.h
+mach/power_loss_test.h
+mtk_hibernate_dpm.h

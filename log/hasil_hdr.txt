@@ -1,0 +1,8 @@
+./drivers/mmc/host/mediatek/ComboA/sw-cqhci-crypto.h
+./include/linux/ssdev_in_mtk/sec_class.h
+./include/linux/sec_class.h
+./include/linux/soc/mediatek/mtk_sip_svc.h
+== 4.19:
+== cfg:
+1918:CONFIG_MTK_AEE_FEATURE=y
+4933:CONFIG_DRV_SAMSUNG=y

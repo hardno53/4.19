@@ -191,11 +191,11 @@ static void lbat_deb_handler(struct work_struct *work)
 	mutex_unlock(&lbat_mutex);
 }
 
-static void lbat_timer_func(unsigned long data)
+static void lbat_timer_func(struct timer_list *t)
 {
 	unsigned int deb_prd = 0;
 	unsigned int deb_times = 0;
-	struct lbat_user *user = (struct lbat_user *)data;
+	struct lbat_user *user = from_timer(user, t, deb_timer);
 
 	if (user->deb_thd_ptr == user->hv_thd) {
 		/* LBAT user HV de-bounce */
@@ -242,10 +242,8 @@ static void lbat_user_init_timer(struct lbat_user *user)
 	user->hv_deb_times = 0;
 	user->lv_deb_prd = 0;
 	user->lv_deb_times = 0;
-	init_timer(&user->deb_timer);
-	user->deb_timer.data = (unsigned long)user;
 	user->deb_timer.expires = 0;
-	user->deb_timer.function = lbat_timer_func;
+	timer_setup(&user->deb_timer, lbat_timer_func, 0);
 }
 
 static int lbat_user_update(struct lbat_user *user)

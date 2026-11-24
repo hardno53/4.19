@@ -1,0 +1,72 @@
+=== /workspaces/ref_oc
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1553-	};
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1554-
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts:1555:	msdc0:msdc@11230000 {
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1556-		compatible = "mediatek,msdc";
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts:1557:		reg = <0x0 0x11230000 0x0 0x10000>,
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1558-		      <0x0 0x11cd0000 0x0 0x10000>;
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1559-		interrupts = <GIC_SPI 79 IRQ_TYPE_LEVEL_LOW>;
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1560-	};
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1561-
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1562-	msdc1:msdc@11240000 {
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1563-		compatible = "mediatek,msdc";
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1564-		reg = <0x0 0x11240000 0x0 0x10000>,
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1565-		      <0x0 0x11c40000 0x0 0x10000>;
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1566-		interrupts = <GIC_SPI 80 IRQ_TYPE_LEVEL_LOW>;
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1567-	};
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1568-
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1569-	usb0@11200000 {
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1570-		compatible = "mediatek,mt6739-usb20";
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1571-		reg = <0 0x11200000 0 0x10000>,
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1572-		      <0 0x11CC0000 0 0x10000>;
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1573-		interrupts = <GIC_SPI 73 IRQ_TYPE_LEVEL_LOW>;
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1574-		mode = <2>;
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1575-		multipoint = <1>;
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1576-		num_eps = <16>;
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1577-		clocks = <&infracfg_ao CLK_INFRA_ICUSB>,
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1578-			<&topckgen CLK_TOP_USB_TOP_SEL>,
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1579-			<&topckgen CLK_TOP_UNIVPLL3_D4>;
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1580-		clock-names = "usb0",
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1581-			"usb0_clk_top_sel",
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1582-			"usb0_clk_univpll3_d4";
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1583-	};
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1584-
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1585-	audio: audio@11220000 {
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1586-		compatible = "mediatek,audio", "syscon";
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/mt6739.dts-1587-		reg = <0 0x11220000 0 0x1000>;
+=== /workspaces/4.19/kernel-4.19.325
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1553-	};
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1554-
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts:1555:	msdc0:msdc@11230000 {
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1556-		compatible = "mediatek,msdc";
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts:1557:		reg = <0x0 0x11230000 0x0 0x10000>,
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1558-		      <0x0 0x11cd0000 0x0 0x10000>;
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1559-		interrupts = <GIC_SPI 79 IRQ_TYPE_LEVEL_LOW>;
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1560-	};
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1561-
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1562-	msdc1:msdc@11240000 {
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1563-		compatible = "mediatek,msdc";
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1564-		reg = <0x0 0x11240000 0x0 0x10000>,
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1565-		      <0x0 0x11c40000 0x0 0x10000>;
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1566-		interrupts = <GIC_SPI 80 IRQ_TYPE_LEVEL_LOW>;
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1567-	};
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1568-
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1569-	usb0@11200000 {
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1570-		compatible = "mediatek,mt6739-usb20";
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1571-		reg = <0 0x11200000 0 0x10000>,
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1572-		      <0 0x11CC0000 0 0x10000>;
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1573-		interrupts = <GIC_SPI 73 IRQ_TYPE_LEVEL_LOW>;
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1574-		mode = <2>;
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1575-		multipoint = <1>;
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1576-		num_eps = <16>;
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1577-		clocks = <&infracfg_ao CLK_INFRA_ICUSB>,
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1578-			<&topckgen CLK_TOP_USB_TOP_SEL>,
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1579-			<&topckgen CLK_TOP_UNIVPLL3_D4>;
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1580-		clock-names = "usb0",
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1581-			"usb0_clk_top_sel",
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1582-			"usb0_clk_univpll3_d4";
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1583-	};
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1584-
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1585-	audio: audio@11220000 {
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1586-		compatible = "mediatek,audio", "syscon";
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/mt6739.dts-1587-		reg = <0 0x11220000 0 0x1000>;

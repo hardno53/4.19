@@ -1,6 +1,0 @@
-0
-aarch64-linux-gnu-ld: warning: -z norelro ignored
-  SORTEX  vmlinux
-  SYSMAP  System.map
-  OBJCOPY arch/arm64/boot/Image
-make[1]: Leaving directory '/workspaces/4.19/kernel-4.19.325/out'

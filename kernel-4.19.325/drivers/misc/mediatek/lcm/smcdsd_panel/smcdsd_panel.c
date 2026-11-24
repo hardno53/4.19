@@ -73,9 +73,16 @@ static void smcdsd_panel_get_params(struct LCM_PARAMS *params)
 	dbg_info("%s -\n", __func__);
 }
 
+static void smcdsd_panel_power_enable(unsigned int enable);
+static void smcdsd_panel_resume(void);
 static void smcdsd_panel_init(void)
 {
+	struct mipi_dsi_lcd_common *plcd = get_lcd_common(0);
+
 	dbg_info("%s\n", __func__);
+	plcd->power = plcd->reset = 0;
+	smcdsd_panel_power_enable(1);
+	smcdsd_panel_resume();
 }
 
 /* disp_lcm_disable(vdo lcd exit) > _cmdq_stop_trigger_loop > dpmgr_path_stop >  disp_lcm_suspend(cmd lcd exit) > dpmgr_path_power_off > panel_power,reset off */

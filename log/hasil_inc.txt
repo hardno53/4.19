@@ -1,0 +1,12 @@
+/workspaces/ref_oc/drivers/mmc/host/mediatek/ComboA/mtk_sd.h:38:#include <fde_aes.h>
+/workspaces/ref_oc/drivers/mmc/host/mediatek/ComboA/mtk_sd.h:39:#include <fde_aes_dbg.h>
+/workspaces/ref_oc/drivers/mmc/host/mediatek/ComboA/mtk_sd.h:48:#include <mach/power_loss_test.h>
+/workspaces/ref_oc/drivers/mmc/host/mediatek/ComboA/sd.c:45:#include <linux/soc/mediatek/mtk_sip_svc.h>
+/workspaces/ref_oc/drivers/mmc/host/mediatek/ComboA/sd.c:46:#include <linux/sec_class.h>
+/workspaces/ref_oc/drivers/mmc/host/mediatek/ComboA/sd.c:63:#include <mtk_hibernate_dpm.h>
+== path di 4.19:
+ls: cannot access '/workspaces/4.19/kernel-4.19.325/drivers/misc/mediatek/fde_aes': No such file or directory
+/workspaces/4.19/kernel-4.19.325/drivers/misc/mediatek/base/power/include
+/workspaces/4.19/kernel-4.19.325/drivers/misc/mediatek/include/mt-plat
+/workspaces/4.19/kernel-4.19.325/drivers/misc/mediatek/include/mt-plat/mt6739/include
+CONFIG_MTK_PLATFORM="mt6739"

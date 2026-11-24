@@ -1902,3 +1902,13 @@ config RAVE_SP_CORE
 
 endmenu
 endif
+config MFD_MT6358
+	tristate "MediaTek MT6358 PMIC Support"
+	select MFD_CORE
+	select IRQ_DOMAIN
+	help
+	  Say yes here to add support for MediaTek MT6358 PMIC. This is
+	  a Power Management IC. This driver provides common support for
+	  accessing the device; additional drivers must be enabled in order
+	  to use the functionality of the device.
+

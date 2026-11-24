@@ -946,3 +946,13 @@ config XILINX_XADC
 	  xilinx-xadc.
 
 endmenu
+config MT635X_AUXADC
+	tristate "MediaTek MT635X PMIC AUXADC Support"
+	depends on MFD_MT6358
+	help
+	  Say yes here to enable support for MediaTek MT635X PMIC AUXADC.
+	  The driver supports multiple channels read.
+
+	  This driver can also be built as a module. If so, the module will be
+	  called mt635x-auxadc.
+

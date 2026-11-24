@@ -1,0 +1,3 @@
+a02
+mt6739.dtb
+out/arch/arm64/boot/dts/mediatek/*a02*.dtb

@@ -10,6 +10,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See http://www.gnu.org/licenses/gpl-2.0.html for more details.
  */
+#include "mtk_cpufreq_compat.h"
 #include <linux/cpufreq.h>
 #include <linux/random.h>
 #include <mt-plat/met_drv.h>
@@ -1302,7 +1303,7 @@ static int _mt_cpufreq_pdrv_probe(struct platform_device *pdev)
 #endif
 	}
 #ifdef CONFIG_CPU_FREQ
-	cpufreq_register_driver(&_mt_cpufreq_driver);
+        pr_notice("[a02] cpufreq_register_driver ret=%d\n", cpufreq_register_driver(&_mt_cpufreq_driver));
 #endif
 	hp_online = cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN,
 						   "cpu_dvfs:online",

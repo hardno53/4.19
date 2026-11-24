@@ -1,0 +1,47 @@
+drivers/mmc/host/mtk-sdio-proc.c
+drivers/mmc/host/mtk-sdio.h
+drivers/mmc/host/mtk-sdio.c
+drivers/mmc/host/mediatek
+drivers/mmc/host/mediatek/ComboA/mtk_sd.h
+drivers/mmc/host/mediatek/ComboA/mt6768/msdc_io.h
+drivers/mmc/host/mediatek/ComboA/mt6768/mtk_hw_fde.c
+drivers/mmc/host/mediatek/ComboA/mt6768/msdc_cust.h
+drivers/mmc/host/mediatek/ComboA/mt6768/msdc_fpga_io.c
+drivers/mmc/host/mediatek/ComboA/mt6768/msdc_cust.c
+drivers/mmc/host/mediatek/ComboA/msdc_partition.c
+drivers/mmc/host/mediatek/ComboA/msdc_reg.h
+drivers/mmc/host/mediatek/ComboA/msdc_tune.c
+drivers/mmc/host/mediatek/ComboA/mt6739/msdc_io.h
+drivers/mmc/host/mediatek/ComboA/mt6739/msdc_cust.h
+drivers/mmc/host/mediatek/ComboA/mt6739/msdc_cust.c
+drivers/mmc/host/mediatek/ComboA/mtk_sd_misc.c
+drivers/mmc/host/mediatek/ComboA/mt6853/msdc_io.h
+drivers/mmc/host/mediatek/ComboA/mt6853/mtk_hw_fde.c
+drivers/mmc/host/mediatek/ComboA/mt6853/msdc_cust.h
+== drivers/mmc/host/mediatek
+wc: drivers/mmc/host/mediatek/ComboA: Is a directory
+wc: drivers/mmc/host/mediatek/rpmb: Is a directory
+      0 drivers/mmc/host/mediatek/ComboA
+      8 drivers/mmc/host/mediatek/Kconfig
+    116 drivers/mmc/host/mediatek/Makefile
+      0 drivers/mmc/host/mediatek/rpmb
+    124 total
+drivers/mmc/host/Kconfig:16:config MMC_MTK_PRO
+drivers/mmc/host/Kconfig:29:	depends on MMC_MTK_PRO
+drivers/mmc/host/mediatek/Kconfig:6:	depends on (MMC_MTK_PRO||MMC_MTK_SDIO) && !(MTK_ENABLE_AGO)
+drivers/mmc/host/mediatek/ComboA/Makefile:80:obj-$(CONFIG_MMC_MTK_PRO) += msdc.o
+drivers/mmc/host/mediatek/Makefile:25:#obj-$(CONFIG_MMC_MTK_PRO) += $(subst ",,$(CONFIG_MTK_PLATFORM))/
+drivers/mmc/host/mediatek/Makefile:46:obj-$(CONFIG_MMC_MTK_PRO) += mt6758/
+drivers/mmc/host/mediatek/Makefile:51:obj-$(CONFIG_MMC_MTK_PRO) += ComboA/
+drivers/mmc/host/mediatek/Makefile:56:obj-$(CONFIG_MMC_MTK_PRO) += ComboA/
+drivers/mmc/host/mediatek/Makefile:61:obj-$(CONFIG_MMC_MTK_PRO) += ComboA/
+drivers/mmc/host/mediatek/Makefile:67:obj-$(CONFIG_MMC_MTK_PRO) += ComboA/
+drivers/mmc/host/mediatek/Makefile:73:obj-$(CONFIG_MMC_MTK_PRO) += ComboA/
+drivers/mmc/host/mediatek/Makefile:79:obj-$(CONFIG_MMC_MTK_PRO) += ComboA/
+drivers/mmc/host/mediatek/Makefile:85:obj-$(CONFIG_MMC_MTK_PRO) += ComboA/
+drivers/mmc/host/mediatek/Makefile:91:obj-$(CONFIG_MMC_MTK_PRO) += ComboA/
+drivers/mmc/host/mediatek/Makefile:97:obj-$(CONFIG_MMC_MTK_PRO) += ComboA/
+drivers/mmc/host/mediatek/Makefile:103:obj-$(CONFIG_MMC_MTK_PRO) += ComboA/
+drivers/mmc/host/mediatek/Makefile:109:obj-$(CONFIG_MMC_MTK_PRO) += ComboA/
+drivers/mmc/host/mediatek/Makefile:115:obj-$(CONFIG_MMC_MTK_PRO) += ComboA/
+drivers/mmc/host/Makefile:101:obj-$(CONFIG_MMC_MTK_PRO)		+= mediatek/

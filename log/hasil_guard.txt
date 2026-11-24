@@ -1,0 +1,47 @@
+69:CONFIG_IRQ_DOMAIN_HIERARCHY=y
+438:# CONFIG_ARCH_UNIPHIER is not set
+1244:# CONFIG_SAMSUNG_NFC is not set
+1430:CONFIG_MTK_PLATFORM="mt6739"
+1535:CONFIG_CAMERA_SAMSUNG_MODEL_NAME="aau_v02"
+2069:# CONFIG_SAMSUNG_TUI is not set
+2118:# CONFIG_MTK_HW_FDE is not set
+2227:# CONFIG_USB_ANDROID_SAMSUNG_MTP is not set
+2351:# CONFIG_KEYBOARD_SAMSUNG is not set
+3391:# CONFIG_DRM_PANEL_SAMSUNG_LD9040 is not set
+3393:# CONFIG_DRM_PANEL_SAMSUNG_S6E8AA0 is not set
+3583:CONFIG_SND_SOC_SAMSUNG_AUDIO=y
+3789:CONFIG_HID_SAMSUNG=y
+3911:# CONFIG_USB_HMT_SAMSUNG_INPUT is not set
+3914:# CONFIG_USB_HOST_SAMSUNG_FEATURE is not set
+4088:# CONFIG_USB_ANDROID_SAMSUNG_COMPOSITE is not set
+4417:# CONFIG_SAMSUNG_FREECESS is not set
+4418:CONFIG_SAMSUNG_LMKD_DEBUG=y
+4933:CONFIG_DRV_SAMSUNG=y
+4944:CONFIG_SAMSUNG_PRODUCT_SHIP=y
+5079:CONFIG_BATTERY_SAMSUNG=y
+5080:# CONFIG_BATTERY_SAMSUNG_LEGO_STYLE is not set
+5091:# CONFIG_SAMSUNG_LPM_MODE is not set
+5092:# CONFIG_SAMSUNG_BATTERY_ENG_TEST is not set
+5093:# CONFIG_SAMSUNG_BATTERY_FACTORY is not set
+== guard:
+/workspaces/ref_oc/drivers/mmc/host/mediatek/ComboA/mtk_sd.h-35-#include "sw-cqhci-crypto.h"
+/workspaces/ref_oc/drivers/mmc/host/mediatek/ComboA/mtk_sd.h-36-
+/workspaces/ref_oc/drivers/mmc/host/mediatek/ComboA/mtk_sd.h-37-#if defined(CONFIG_MTK_HW_FDE) && defined(CONFIG_MTK_HW_FDE_AES)
+/workspaces/ref_oc/drivers/mmc/host/mediatek/ComboA/mtk_sd.h:38:#include <fde_aes.h>
+/workspaces/ref_oc/drivers/mmc/host/mediatek/ComboA/mtk_sd.h:39:#include <fde_aes_dbg.h>
+--
+/workspaces/ref_oc/drivers/mmc/host/mediatek/ComboA/mtk_sd.h-45-
+/workspaces/ref_oc/drivers/mmc/host/mediatek/ComboA/mtk_sd.h-46-
+/workspaces/ref_oc/drivers/mmc/host/mediatek/ComboA/mtk_sd.h-47-#ifdef CONFIG_PWR_LOSS_MTK_TEST
+/workspaces/ref_oc/drivers/mmc/host/mediatek/ComboA/mtk_sd.h:48:#include <mach/power_loss_test.h>
+--
+/workspaces/ref_oc/drivers/mmc/host/mediatek/ComboA/sd.c-42-#include <linux/seq_file.h>
+/workspaces/ref_oc/drivers/mmc/host/mediatek/ComboA/sd.c-43-#include <linux/pm_runtime.h>
+/workspaces/ref_oc/drivers/mmc/host/mediatek/ComboA/sd.c-44-#include <linux/arm-smccc.h>
+/workspaces/ref_oc/drivers/mmc/host/mediatek/ComboA/sd.c:45:#include <linux/soc/mediatek/mtk_sip_svc.h>
+/workspaces/ref_oc/drivers/mmc/host/mediatek/ComboA/sd.c:46:#include <linux/sec_class.h>
+--
+/workspaces/ref_oc/drivers/mmc/host/mediatek/ComboA/sd.c-60-#include <mt-plat/aee.h>
+/workspaces/ref_oc/drivers/mmc/host/mediatek/ComboA/sd.c-61-#endif
+/workspaces/ref_oc/drivers/mmc/host/mediatek/ComboA/sd.c-62-#ifdef CONFIG_MTK_HIBERNATION
+/workspaces/ref_oc/drivers/mmc/host/mediatek/ComboA/sd.c:63:#include <mtk_hibernate_dpm.h>

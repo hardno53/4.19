@@ -43,7 +43,7 @@ static struct legacy_pmic_callback pmic_cbs[300];
 irqreturn_t key_int_handler(int irq, void *data)
 {
 	struct irq_desc *desc = irq_to_desc(irq);
-	unsigned int hwirq = irqd_to_hwirq(&desc->irq_data);
+	unsigned int __maybe_unused hwirq = irqd_to_hwirq(&desc->irq_data);
 
 #if !defined(CONFIG_FPGA_EARLY_PORTING) && defined(CONFIG_KPD_PWRKEY_USE_PMIC)
 	switch (hwirq) {

@@ -1,0 +1,14 @@
+=== /workspaces/ref_oc
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/a02/mt6739_a02_input_common.dtsi:118:		spi-max-frequency = <5000000>;
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/a02/mt6739_a02_input_common.dtsi:152:		spi-max-frequency = <9600000>;	//4800000,9600000,15000000,19200000
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/a02/mt6739_a02_input_common.dtsi:231:		spi-max-frequency = <5000000>;
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/a02/mt6739_a02_input_common.dtsi:118:		spi-max-frequency = <5000000>;
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/a02/mt6739_a02_input_common.dtsi:152:		spi-max-frequency = <9600000>;	//4800000,9600000,15000000,19200000
+/workspaces/ref_oc/arch/arm64/boot/dts/mediatek/a02/mt6739_a02_input_common.dtsi:231:		spi-max-frequency = <5000000>;
+=== /workspaces/4.19/kernel-4.19.325
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/a02/mt6739_a02_input_common.dtsi:118:		spi-max-frequency = <5000000>;
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/a02/mt6739_a02_input_common.dtsi:152:		spi-max-frequency = <9600000>;	//4800000,9600000,15000000,19200000
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/a02/mt6739_a02_input_common.dtsi:231:		spi-max-frequency = <5000000>;
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/a02/mt6739_a02_input_common.dtsi:118:		spi-max-frequency = <5000000>;
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/a02/mt6739_a02_input_common.dtsi:152:		spi-max-frequency = <9600000>;	//4800000,9600000,15000000,19200000
+/workspaces/4.19/kernel-4.19.325/arch/arm64/boot/dts/mediatek/a02/mt6739_a02_input_common.dtsi:231:		spi-max-frequency = <5000000>;

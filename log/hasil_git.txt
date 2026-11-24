@@ -1,0 +1,47 @@
+b84de4d54 Pending changes exported from your codespace
+ D Image_k419b
+ D Image_k419c
+ D boot_info.txt
+ D err13.txt
+ D err14.txt
+ D err15.txt
+ D err16.txt
+ D err17.txt
+ D err18.txt
+ D err19.txt
+ D err20.txt
+ D gpu_info.txt
+ D gpu_info2.txt
+ D gpu_info3.txt
+ D ion_chk.txt
+hasil_cfg.txt
+hasil_combo.txt
+hasil_deps.txt
+hasil_dts.txt
+hasil_git.txt
+hasil_guard.txt
+hasil_hdr.txt
+hasil_inc.txt
+hasil_mmcnode.txt
+hasil_msdc2.txt
+hasil_msdcpro.txt
+17:&msdc0 {
+22:	cap-mmc-highspeed;
+23:	msdc-sys-suspend;
+24:	mmc-ddr-1_8v;
+25:	mmc-hs200-1_8v;
+26:	mmc-hs400-1_8v;
+28:	pinctl = <&msdc0_pins_default>;
+29:	pinctl_hs400 = <&msdc0_pins_default>;
+30:	pinctl_hs200 = <&msdc0_pins_default>;
+31:	register_setting = <&msdc0_register_setting_default>;
+34:	vmmc-supply = <&mt_pmic_vemc_ldo_reg>;
+37:	clock-names = "msdc0-clock", "msdc0-hclock";
+40:&msdc1 {
+45:	msdc-sys-suspend;
+52:	pinctl = <&msdc1_pins_default>;
+53:	pinctl_sdr104 = <&msdc1_pins_sdr104>;
+54:	pinctl_sdr50 = <&msdc1_pins_sdr50>;
+55:	pinctl_ddr50 = <&msdc1_pins_ddr50>;
+56:	register_setting = <&msdc1_register_setting_default>;
+61:	vmmc-supply = <&mt_pmic_vmch_ldo_reg>;

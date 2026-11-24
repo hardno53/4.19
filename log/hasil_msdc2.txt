@@ -1,0 +1,4 @@
+mtk-sd.c
+495:CONFIG_MMC_MTK=y
+drivers/mmc/host/Kconfig:898:config MMC_MTK
+drivers/mmc/host/Makefile:26:obj-$(CONFIG_MMC_MTK)		+= mtk-sd.o

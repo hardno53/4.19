@@ -20,3 +20,7 @@ obj-y += base/
 obj-y += gpu/
 obj-y += aee/
 obj-y += cmo/
+obj-$(CONFIG_MTK_PMIC_NEW_ARCH) += pmic/
+obj-$(CONFIG_MTK_PMIC_WRAP_HAL) += pmic_wrap/
+obj-$(CONFIG_MTK_PWM) += pwm/
+obj-y += atf/

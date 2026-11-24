@@ -1,0 +1,19 @@
+* port
+  remotes/origin/HEAD -> origin/port
+  remotes/origin/a02-4.19.325-port
+  remotes/origin/port
+b84de4d54 Pending changes exported from your codespace
+30935998c backup: perbaiki daftar file (11 file)
+de9bb2a01 backup: a02_pwrap, a02_pwkey (power+voldown)
+3b7b5b92a backup: a02_kpd, a02_rr
+dcd513cdc restart via wdt toprgu sebelum PSCI, MEDIATEK_WATCHDOG on
+7f3db7969 backup k419 lengkap (filter.c, musb, defconfig), MAGIC_SYSRQ off
+300feeece backup: tambah file mmc
+93ca67104 catatan base tree
+9a9215e22 backup perubahan kernel-4.19.325
+a40c592dd catatan pulihkan backup kernel-4.19.325
+3f349ff92 k419: mmc7 working (mt2712 compat), docs/scripts
+66b26696d backup: a02 4.19.325 port
+/workspaces/4.19/Documentation/devicetree/bindings/mmc/mtk-sd.txt
+/workspaces/4.19/kernel-4.19.325/Documentation/devicetree/bindings/mmc/mtk-sd.txt
+/workspaces/ref_oc/Documentation/devicetree/bindings/mmc/mtk-sd.txt

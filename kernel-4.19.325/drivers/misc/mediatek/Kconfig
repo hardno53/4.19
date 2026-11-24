@@ -27,5 +27,8 @@ source "drivers/misc/mediatek/video/Kconfig"
 source "drivers/misc/mediatek/ext_disp/Kconfig"
 source "drivers/misc/mediatek/leds/Kconfig"
 source "drivers/misc/mediatek/gpu/Kconfig"
+source "drivers/misc/mediatek/pwm/Kconfig"
+source "drivers/misc/mediatek/pmic/Kconfig"
+source "drivers/misc/mediatek/pmic_wrap/Kconfig"
 
 endif
