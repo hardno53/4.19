@@ -946,6 +946,7 @@ static int _mt_cpufreq_setup_freqs_table(struct cpufreq_policy *policy,
 	p = id_to_cpu_dvfs(_get_cpu_dvfs_id(policy->cpu));
 
 	ret = cpufreq_frequency_table_cpuinfo(policy, p->freq_tbl_for_cpufreq);
+	pr_notice("[a02] cpufreq tbl_cpuinfo ret=%d cpu=%u\n", ret, policy->cpu);
 
 	if (!ret)
 		policy->freq_table = p->freq_tbl_for_cpufreq;
@@ -1108,6 +1109,7 @@ static int _mt_cpufreq_target(struct cpufreq_policy *policy,
 static int _mt_cpufreq_init(struct cpufreq_policy *policy)
 {
 	int ret = -EINVAL;
+	pr_notice("[a02] cpufreq init enter cpu=%u\n", policy->cpu);
 
 	FUNC_ENTER(FUNC_LV_MODULE);
 
@@ -1157,6 +1159,7 @@ static int _mt_cpufreq_init(struct cpufreq_policy *policy)
 		cpufreq_unlock();
 	}
 
+	pr_notice("[a02] cpufreq init done cpu=%u ret=%d cur=%u min=%u max=%u tbl=%p\n", policy->cpu, ret, policy->cur, policy->min, policy->max, policy->freq_table);
 	if (ret)
 		tag_pr_notice("failed to setup frequency table\n");
 
@@ -1387,6 +1390,16 @@ static int __init _mt_cpufreq_tbl_init(void)
 				table[i].driver_data = i;
 				table[i].frequency =
 					opp_tbl_info->opp_tbl[i].cpufreq_khz;
+				/* a02: tandai entri frekuensi dobel agar tabel valid di core 4.19 */
+				{
+					int k;
+					for (k = 0; k < i; k++) {
+						if (table[k].frequency == table[i].frequency) {
+							table[i].frequency = CPUFREQ_ENTRY_INVALID;
+							break;
+						}
+					}
+				}
 			}
 
 			table[opp_tbl_info->size].driver_data = i;
